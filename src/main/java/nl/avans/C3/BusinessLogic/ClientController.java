@@ -48,7 +48,7 @@ public class ClientController {
         model.addAttribute("clients", clients);
         model.addAttribute("searchquery", searchquery);
         
-        return "clients";
+        return "views/client/clients";
     }
     
     @RequestMapping(value = "/clients", method = RequestMethod.POST)
@@ -80,7 +80,7 @@ public class ClientController {
         InitializeSearchOptions(model);
         model.addAttribute("clients", clients);
         model.addAttribute("searchquery", searchquery);
-        return "clients";
+        return "views/client/clients";
     }
 
     private void InitializeSearchOptions(ModelMap model)
@@ -178,7 +178,7 @@ public class ClientController {
         SearchQuery searchquery = new SearchQuery();
         model.addAttribute("clients", clientService.findAllClients());
         model.addAttribute("searchquery", searchquery);
-        return "clients";
+        return "views/client/clients";
     }
 }
 

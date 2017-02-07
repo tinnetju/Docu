@@ -1,98 +1,101 @@
-<div class="container" layout:fragment="summary">
-    <div>
-        <a th:href="@{/clients}">Terug</a>
-        <br/>
-        <h2>Klantgegevens</h2>
-        
-        <div>
-            <h3>Persoonlijke gegevens</h3>
-            
-            <div> 
-                <p>
-                    <b>BSN: </b>
-                    <span th:text="${client.BSN}"/>
-                </p>
-            </div>
-
-            <div> 
-                <p>
-                    <b>Naam: </b>
-                    <span th:text="${client.FirstName} + ' ' + ${client.LastName}"/>
-                </p>
-            </div>
-            
-            <div> 
-                <p>
-                    <b>Geboortedatum: </b>
-                    <span th:text="${client.DateOfBirth}"/>
-                </p>
-            </div>
-        </div>
-        
-        <div>
-            <h3>Woongegevens</h3>
-            
-            <div> 
-                <p>
-                    <b>Adres: </b>
-                    <span th:text="${client.Address}"/>
-                </p>
-            </div>
-            
-            <div> 
-                <p>
-                    <b>Woonplaats: </b>
-                    <span th:text="${client.City}"/>
-                </p>
-            </div>
-            
-            <div> 
-                <p>
-                    <b>Postcode: </b>
-                    <span th:text="${client.PostalCode}"/>
-                </p>
-            </div>
-        </div>
-        
-        
-        <div>
-            <h3>Bankgegevens</h3>
-            
-            <div> 
-                <p>
-                    <b>IBAN: </b>
-                    <span th:text="${client.IBAN}"/>
-                </p>
-            </div>
-            
-            <div> 
-                <p>
-                    <b>Automatische incasso: </b>
-                    <span th:text="${client.Incasso} ? 'Ja' : 'Nee'" />
-                </p>
-            </div>
-        </div>
-        
-        <div>
-            <h3>Contactgegevens</h3>
-            
-            <div> 
-                <p>
-                    <b>Emailadres: </b>
-                    <span th:text="${client.EmailAddress}"/>
-                </p>
-            </div>
-            
-            <div> 
-                <p>
-                    <b>Telefoonnummer: </b>
-                    <span th:text="${client.TelephoneNumber}"/>
-                </p>
-            </div>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="fragments/head :: head"></head>
+    <body>
+        <!-- Header -->
+        <div th:replace="fragments/header :: header"></div>
+        <div class="container">
+<form class="form-horizontal" action="#" th:action="@{/client/viewclient}" th:object="${client}" method="post">  
+    <a th:href="@{/clients}"><button type="button" class="btn btn-info col-xs-2">Terug</button></a>
+    <br/>
+    <br/>
+    <h2>Klantgegevens</h2>
+    <h3>Persoonlijke gegevens</h3>
+    <div class="form-group">
+    <label for="BSN" class="control-label col-xs-2">BSN:</label>
+        <div class="col-xs-3">
+                    <span th:text="${client.BSN}"/>        
         </div>
     </div>
+
+    <div class="form-group">
+    <label for="priceLbl" class="control-label col-xs-2">Naam:</label>
+        <div class="col-xs-3">
+                    <span th:text="${client.FirstName} + ' ' + ${client.LastName}"/>
+        </div>
+    </div>
+    <div class="form-group">
+    <label for="priceLbl" class="control-label col-xs-2">Geboortedatum:</label>
+        <div class="col-xs-3">
+                    <span th:text="${client.DateOfBirth}"/>
+        </div>
+    </div>
+    <br/>
+
+    <h3>Woongegevens</h3>
+    <div class="form-group">
+    <label for="priceLbl" class="control-label col-xs-2">Adres:</label>
+        <div class="col-xs-3">
+                    <span th:text="${client.Address}"/>
+        </div>
+    </div>
+    <div class="form-group">
+    <label for="priceLbl" class="control-label col-xs-2">Stad:</label>
+        <div class="col-xs-3">
+                    <span th:text="${client.City}"/>
+        </div>
+    </div>
+    <div class="form-group">
+    <label for="priceLbl" class="control-label col-xs-2">Postcode:</label>
+        <div class="col-xs-3">
+                    <span th:text="${client.PostalCode}"/>
+        </div>
+    </div>
+    <br/>
     
-    <a th:href="@{/insuranceContract/viewcontracts/{BSN}(BSN=${client.BSN})}" th:text="Contracten + ' ' + beheren"/>
+    <h3>Bankgegevens</h3>
+    <div class="form-group">
+    <label for="priceLbl" class="control-label col-xs-2">IBAN:</label>
+        <div class="col-xs-3">
+                    <span th:text="${client.IBAN}"/>
+        </div>
+    </div>
+    <div class="form-group">
+    <label for="priceLbl" class="control-label col-xs-2">Incasso:</label>
+        <div class="col-xs-3">
+                    <span th:text="${client.Incasso} ? 'Ja' : 'Nee'" />
+        </div>
+    </div>
+    <br/>
     
-    <td><a th:href="@{/client/edit/{BSN}(BSN=${client.BSN})}" th:text="Bewerken"/> <a th:href="@{/client/delete/{BSN}(BSN=${client.BSN})}" th:text="Verwijderen"/></td>
-</div>
+    <h3>Contactgegevens</h3>
+    <div class="form-group">
+    <label for="priceLbl" class="control-label col-xs-2">Email:</label>
+        <div class="col-xs-3">
+                    <span th:text="${client.EmailAddress}"/>
+        </div>
+    </div>
+    <div class="form-group">
+    <label for="priceLbl" class="control-label col-xs-2">Telefoon:</label>
+        <div class="col-xs-3">
+                    <span th:text="${client.TelephoneNumber}"/>
+        </div>
+    </div> 
+    
+    <br/>
+    <a th:href="@{/insuranceContract/viewcontracts/{BSN}(BSN=${client.BSN})}"><button type="button" class="btn btn-info">Contracten beheren</button></a>
+    <a th:href="@{/client/edit/{BSN}(BSN=${client.BSN})}"><button type="button" class="btn btn-info">Bewerken</button></a>
+    <a th:href="@{/client/delete/{BSN}(BSN=${client.BSN})}"><button type="button" class="btn btn-info">Verwijderen</button></a>
+</form>
+        </div>
+
+        <footer class="footer">
+            <div th:replace="fragments/footer :: footer">&copy; 2016 blog.codeleak.pl</div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+        <script src="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+    </body>
+</html>
+
+
+
