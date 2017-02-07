@@ -6,7 +6,21 @@
         <div th:replace="fragments/header :: header"></div>
         <div class="container">
 <form class="form-horizontal" action="#" th:action="@{/client/edit}" th:object="${client}" method="post">  
-    
+                <div th:if="${#fields.hasErrors('*')}">
+                <div th:with="type='danger', header='Fouten in het formulier'" th:remove="tag">
+                    <th:block layout:fragment="alert-summary">
+                        <h3>Niet alle velden in het formulier zijn correct ingevuld. Corrigeer deze en probeer het opnieuw.</h3>
+                    </th:block>
+                </div>
+            </div>
+            
+            <div th:if="${exception}">
+                <div layout:include="views/client/alert :: alert" th:with="type='danger', header='Fouten in het formulier'" th:remove="tag">
+                    <th:block layout:fragment="alert-summary">
+                        <h4 th:text="${exception}">Exception message</h4>
+                    </th:block>
+                </div>
+            </div>
     <div class="form-group">
     <label for="BSN" class="control-label col-xs-1">BSN:</label>
         <div class="col-xs-3">
