@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="fragments/head :: head"></head>
+    <body>
+        <!-- Header -->
+        <div th:replace="fragments/header :: header"></div>
+        <div class="container">
+        <form class="form-horizontal" action="#" th:action="@{/editinsuranceCompany/{KVK}(KVK=${insuranceCompany.KVK})}" th:object="${insuranceCompany}" method="POST">
+   
+        <div class="form-group">
+            <label for="nameLbl" class="control-label col-xs-1">Name:</label>
+        <div class="col-xs-3">
+            <input type="text" th:field="*{Name}" />               
+        </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cityLbl" class="control-label col-xs-1">City:</label>
+                <div class="col-xs-3">
+            <input type="text" th:field="*{City}" />
+                <!--<input type="text" class="form-control" id="name" name="name" th:value="${name}" placeholder="Enter name"/>-->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="postalLbl" class="control-label col-xs-1">Postal code:</label>
+                <div class="col-xs-3">
+            <input type="text" th:field="*{PostalCode}" />
+                <!--<input type="text" class="form-control" id="price" name="price" th:value="${price}" placeholder="Enter price"/>-->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="addressLbl" class="control-label col-xs-1">Address:</label>
+                <div class="col-xs-3">
+            <input type="text" th:field="*{Address}" />
+                <!--<input type="text" class="form-control" id="sessionsReimbursed" name="sessionsReimbursed" th:value="${sessionsReimbursed}" placeholder="Enter amount of sessions reimbursed"/>-->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="kvkLbl" class="control-label col-xs-1">KVK:</label>
+                    <div class="col-xs-3">
+            <input type="text" th:field="*{KVK}" />
+                <!--<input type="text" class="form-control" id="sessionsReimbursed" name="sessionsReimbursed" th:value="${sessionsReimbursed}" placeholder="Enter amount of sessions reimbursed"/>-->
+            </div>
+        </div>    
+
+        <div class="form-group">
+            <button class="btn btn-info" type="submit">Submit</button>     
+        </div>
+        <p th:text="${message}" />
+</form>
+</div>
+
+        <footer class="footer">
+            <div th:replace="fragments/footer :: footer">&copy; 2016 blog.codeleak.pl</div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+        <script src="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+    </body>
+</html>
+

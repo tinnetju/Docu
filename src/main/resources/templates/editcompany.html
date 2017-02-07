@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stamgegevens Verzekeringsmaatschappij Bewerken</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Bewerken stamgegevens van de verzekeringsmaatschappij</h1>
+    
+    <p>
+        <form action="/editcompany" method="post">
+
+            Bedrijfsnaam: <br />
+            <input type="text" th:value="${name}" name="name"/><br /><br />
+
+            Plaats: <br />
+            <input type="text" th:value="${city}" name="city"/><br /><br />
+
+            Postcode: <br />
+            <input type="text" th:value="${postalCode}" name="postalCode"/><br /><br />
+
+            Adres: <br />
+            <input type="text" th:value="${address}" name="address"/><br /><br />
+
+            Land: <br />
+            <input type="text" th:value="${country}" name="country"/><br /><br />
+
+            KVK: <br />
+            <input type="text" th:value="${kVK}" name="kVK"/><br /><br />
+
+            <input type="submit" name="save" value="Aanpassen" />
+
+        </form>
+    </p>
+    
+    <br />
+    
+    <a href="/company">Klik hier om de stamgegevens van de verzekeringsmaatschappij te bekijken</a>
+    <br />
+    <br />
+    <a href="/">Klik hier om terug te keren naar het hoofdmenu</a>
+</body>
+</html>

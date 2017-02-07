@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="fragments/head :: head"></head>
+    <body>
+        <div class="text-center"><img src='https://s14.postimg.org/de80zx0r5/logo.png' border='0' alt='logo'/></div>
+        <div class="text-center" th:if="${param.error}">
+            Verkeerde gebruikersnaam of wachtwoord!
+        </div>
+        <div class="text-center" th:if="${param.logout}">
+            U bent uitgelogd!
+        </div>
+        <form class="form-signin" th:action="@{/login}" method="post">
+            <h2 class="form-signin-heading">Inloggen</h2>
+            <div><label> Gebruikersnaam: <input class="form-control" type="text" name="username"/> </label></div>
+            <div><label> Wachtwoord: <input class="form-control" type="password" name="password"/> </label></div>
+            <div><input class="btn btn-lg btn-primary btn-block" type="submit" value="Log In"/></div>
+        </form>
+    <script src="https://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </body>
+</html>

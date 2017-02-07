@@ -1,0 +1,118 @@
+<html>
+    <body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Cliënt toevoegen</h1>
+        </div>
+        <h2>Hier kunt u een nieuwe cliënt aanmaken.</h2>
+        <form id="createMemberForm" action="#" th:action="@{/client/create}" th:object="${client}" method="post">
+            <div th:if="${#fields.hasErrors('*')}">
+                <div th:with="type='danger', header='Fouten in het formulier'" th:remove="tag">
+                    <th:block layout:fragment="alert-summary">
+                        <h3>Niet alle velden in het formulier zijn correct ingevuld. Corrigeer deze en probeer het opnieuw.</h3>
+                    </th:block>
+                </div>
+            </div>
+            
+            <div th:if="${exception}">
+                <div layout:include="views/client/alert :: alert" th:with="type='danger', header='Fouten in het formulier'" th:remove="tag">
+                    <th:block layout:fragment="alert-summary">
+                        <h4 th:text="${exception}">Exception message</h4>
+                    </th:block>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="BSN">BSN: </label>
+                        <input type="text" class="form-control" id="BSN" th:field="*{BSN}"/>
+                        <p th:if="${#fields.hasErrors('BSN')}" th:errors="*{BSN}">Name Error</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="firstname">Voornaam: </label>
+                        <input type="text" class="form-control" id="firstname" th:field="*{FirstName}"/>
+                        <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{FirstName}">Name Error</p>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="lastname">Achternaam: </label>
+                        <input type="text" class="form-control" id="lastname" th:field="*{LastName}"/>
+                        <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{LastName}">Name Error</p>
+                    </div>
+                 </div>
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="dateofbirth">Geboortedatum </label>
+                        <input type="text" class="form-control" id="lastname" th:field="*{DateOfBirth}"/>
+                        <p th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{DateOfBirth}">Date Error</p>
+                    </div>
+                 </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="address">Adres: </label>
+                        <input type="text" class="form-control" id="address" th:field="*{Address}"/>
+                        <p th:if="${#fields.hasErrors('address')}" th:errors="*{Address}">Name Error</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="city">Stad: </label>
+                        <input type="text" class="form-control" id="city" th:field="*{City}"/>
+                        <p th:if="${#fields.hasErrors('city')}" th:errors="*{City}">Name Error</p>
+                    </div>
+                 </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="postalcode">Postcode: </label>
+                        <input type="text" class="form-control" id="postalcode" th:field="*{PostalCode}"/>
+                        <p th:if="${#fields.hasErrors('postalCode')}" th:errors="*{PostalCode}">Name Error</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="IBAN">IBAN: </label>
+                        <input type="text" class="form-control" id="IBAN" th:field="*{IBAN}"/>
+                        <p th:if="${#fields.hasErrors('IBAN')}" th:errors="*{IBAN}">Name Error</p>
+                    </div>
+                 </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="incasso">Incasso: </label>
+                        <input type="checkbox" class="form-control" id="incasso" th:field="*{Incasso}"/>
+                        <p th:if="${#fields.hasErrors('incasso')}" th:errors="*{Incasso}">Name Error</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input type="text" class="form-control" id="email" th:field="*{EmailAddress}"/>
+                        <p th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{EmailAddress}">Name Error</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="telephonenumber">Telefoon: </label>
+                        <input type="text" class="form-control" id="telephonenumber" th:field="*{TelephoneNumber}"/>
+                        <p th:if="${#fields.hasErrors('telephoneNumber')}" th:errors="*{TelephoneNumber}">Name Error</p>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" name="save">Aanmaken</button>
+        </form>
+    </div>
+    </body>
+</html>

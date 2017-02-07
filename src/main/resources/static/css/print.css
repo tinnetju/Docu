@@ -1,0 +1,7 @@
+#printHeader,.text-muted,#beginDate, #endDate, #btnPrint, #btnShowAll, #btnFilter, .datepicker-days, .datepicker, #lblBeginDate, #lblEndDate, #lblIntroduction{
+    display: none;
+}
+
+#pageHeader{
+    text-align: center;
+}

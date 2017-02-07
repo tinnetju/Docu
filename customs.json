@@ -1,0 +1,9 @@
+{
+    "elements": {},
+    "attributes": {
+        "th:text": {
+            "context": "p"
+        },
+        "${message}": {}
+    }
+}

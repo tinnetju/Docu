@@ -1,0 +1,96 @@
+<div class="container" layout:fragment="summary">
+    <div>
+        <a th:href="@{/clients}">Terug</a>
+        <br/>
+        <h2>Klantgegevens</h2>
+        
+        <div>
+            <h3>Persoonlijke gegevens</h3>
+            
+            <div> 
+                <p>
+                    <b>BSN: </b>
+                    <span th:text="${client.BSN}"/>
+                </p>
+            </div>
+
+            <div> 
+                <p>
+                    <b>Naam: </b>
+                    <span th:text="${client.FirstName} + ' ' + ${client.LastName}"/>
+                </p>
+            </div>
+            
+            <div> 
+                <p>
+                    <b>Geboortedatum: </b>
+                    <span th:text="${client.DateOfBirth}"/>
+                </p>
+            </div>
+        </div>
+        
+        <div>
+            <h3>Woongegevens</h3>
+            
+            <div> 
+                <p>
+                    <b>Adres: </b>
+                    <span th:text="${client.Address}"/>
+                </p>
+            </div>
+            
+            <div> 
+                <p>
+                    <b>Woonplaats: </b>
+                    <span th:text="${client.City}"/>
+                </p>
+            </div>
+            
+            <div> 
+                <p>
+                    <b>Postcode: </b>
+                    <span th:text="${client.PostalCode}"/>
+                </p>
+            </div>
+        </div>
+        
+        
+        <div>
+            <h3>Bankgegevens</h3>
+            
+            <div> 
+                <p>
+                    <b>IBAN: </b>
+                    <span th:text="${client.IBAN}"/>
+                </p>
+            </div>
+            
+            <div> 
+                <p>
+                    <b>Automatische incasso: </b>
+                    <span th:text="${client.Incasso} ? 'Ja' : 'Nee'" />
+                </p>
+            </div>
+        </div>
+        
+        <div>
+            <h3>Contactgegevens</h3>
+            
+            <div> 
+                <p>
+                    <b>Emailadres: </b>
+                    <span th:text="${client.EmailAddress}"/>
+                </p>
+            </div>
+            
+            <div> 
+                <p>
+                    <b>Telefoonnummer: </b>
+                    <span th:text="${client.TelephoneNumber}"/>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <td><a th:href="@{/client/edit/{BSN}(BSN=${client.BSN})}" th:text="Bewerken"/> <a th:href="@{/client/delete/{BSN}(BSN=${client.BSN})}" th:text="Verwijderen"/></td>
+</div>
