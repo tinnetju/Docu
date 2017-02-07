@@ -27,7 +27,7 @@ public class PersistenceContext {
     //protected static final String PROPERTY_NAME_DATABASE_USERNAME = "sql11154953";
 
     protected static final String PROPERTY_NAME_DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-    protected static final String PROPERTY_NAME_DATABASE_PASSWORD = "password";
+    protected static final String PROPERTY_NAME_DATABASE_PASSWORD = "";
     protected static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://localhost:3306/facturatie";
     protected static final String PROPERTY_NAME_DATABASE_USERNAME = "root";
     

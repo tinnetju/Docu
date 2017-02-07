@@ -37,13 +37,13 @@
             </thead>
             <tbody>
             <tr th:each="client : ${clients}">
-                <td th:text="${client.FirstName}"></td>
+                <td th:text="${client.FirstName}"/>
                 <td th:text="${client.LastName}"/>
                 <td th:text="${client.City}"/>
                 <td th:text="${client.Incasso} ? 'Ja' : 'Nee'"/>
                 <td th:text="${client.EmailAddress}"/>
                 <td th:text="${client.TelephoneNumber}"/>
-                <td><a th:href="@{/client/viewclient/{BSN}(BSN=${client.BSN})}" th:text="Bekijken"/> <a th:href="@{/client/edit/{BSN}(BSN=${client.BSN})}" th:text="Bewerken"/> <a th:href="@{/client/delete/{BSN}(BSN=${client.BSN})}" th:text="Verwijderen"/> <a th:href="@{/client/viewcontracts/{BSN}(BSN=${client.BSN})}" th:text="Contracten + ' ' + beheren"/></td>
+                <td><a th:href="@{/client/viewclient/{BSN}(BSN=${client.BSN})}" th:text="Bekijken"/> <a th:href="@{/client/edit/{BSN}(BSN=${client.BSN})}" th:text="Bewerken"/> <a th:href="@{/client/delete/{BSN}(BSN=${client.BSN})}" th:text="Verwijderen"/> <a th:href="@{/insuranceContract/viewcontracts/{BSN}(BSN=${client.BSN})}" th:text="Contracten + ' ' + beheren"/></td>
             </tr>
             </tbody>
         </table>

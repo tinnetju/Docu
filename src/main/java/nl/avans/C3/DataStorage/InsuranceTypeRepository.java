@@ -56,8 +56,7 @@ public class InsuranceTypeRepository implements InsuranceTypeRepositoryIF {
                 "SELECT * FROM insuranceType WHERE InsuranceTypeID=?",
                 new Object[]{ID}, new InsuranceTypeRowMapper());
     }
-
-
+    
     @Override
     public InsuranceType create(final InsuranceType insuranceType) {
         final String sql = "INSERT INTO insurancetype(InsuranceTypeName, InsuranceTypeDescription,ReimbursementDescription,ReimbursementAmount) " +
@@ -102,5 +101,11 @@ public class InsuranceTypeRepository implements InsuranceTypeRepositoryIF {
     @Override
     public void deleteInsuranceTypeById(int ID) {
         jdbcTemplate.update("DELETE FROM insurancetype WHERE InsuranceTypeID=?", ID);
+    }
+    
+    @Transactional(readOnly=true)
+    @Override
+    public List<InsuranceType> findInsuranceTypesByInsuranceID(int ID) {
+        return jdbcTemplate.query("SELECT * FROM insurancetype WHERE InsuranceID=?", new Object[]{ID}, new InsuranceTypeRowMapper());
     }
 }

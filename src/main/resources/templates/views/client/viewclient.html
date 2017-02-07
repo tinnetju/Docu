@@ -92,5 +92,7 @@
         </div>
     </div>
     
+    <a th:href="@{/insuranceContract/viewcontracts/{BSN}(BSN=${client.BSN})}" th:text="Contracten + ' ' + beheren"/>
+    
     <td><a th:href="@{/client/edit/{BSN}(BSN=${client.BSN})}" th:text="Bewerken"/> <a th:href="@{/client/delete/{BSN}(BSN=${client.BSN})}" th:text="Verwijderen"/></td>
 </div>

@@ -58,6 +58,18 @@ public class InsuranceTypeService {
             return insuranceType;
         }
     }
+    
+    public List<InsuranceType> findInsuranceTypesByInsuranceID(int ID) throws InsuranceNotFoundException {
+        List<InsuranceType> insuranceTypes = null;
+
+        insuranceTypes = insuranceTypeRepository.findInsuranceTypesByInsuranceID(ID);
+        if(insuranceTypes.equals(null) || insuranceTypes.size() < 1) {
+            throw new InsuranceNotFoundException("Exception!");
+        } else {
+            return insuranceTypes;
+        }
+    }
+    
     public InsuranceType create(final InsuranceType insuranceType)  {
         return insuranceTypeRepository.create(insuranceType);
     }

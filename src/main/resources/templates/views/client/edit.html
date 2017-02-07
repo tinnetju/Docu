@@ -46,7 +46,7 @@
                  </div>
                 <div class="col-sm-8">
                     <div class="form-group">
-                        <label for="dateofbirth">Geboortedatum </label>
+                        <label for="dateofbirth">Geboortedatum(JJJJ-MM-DD): </label>
                         <input type="text" class="form-control" id="lastname" th:field="*{DateOfBirth}"/>
                         <p th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{DateOfBirth}">Date Error</p>
                     </div>

@@ -22,4 +22,6 @@ public interface InsuranceTypeRepositoryIF {
     public void edit(final InsuranceType insuranceType, int ID);
     
     public void deleteInsuranceTypeById(int ID);
+    
+    public List<InsuranceType> findInsuranceTypesByInsuranceID(int ID);
 }
