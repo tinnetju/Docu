@@ -17,11 +17,11 @@ public class InsuranceRowMapper implements RowMapper<Insurance>
     public Insurance mapRow(ResultSet rs, int rowNum) throws SQLException {
         Insurance insurance = new Insurance();
        
-        insurance.setID(rs.getInt("ID"));
-        insurance.setName(rs.getString("name"));
-        insurance.setInsuranceCompany(null);
-        insurance.setPrice(rs.getBigDecimal("price"));
-        insurance.setSessionsReimbursed(rs.getInt("sessionsReimbursed"));
+        insurance.setID(rs.getInt("InsuranceID"));
+        insurance.setName(rs.getString("InsuranceName"));
+        insurance.setDescription(rs.getString("InsuranceDescription"));
+        insurance.setPrice(rs.getBigDecimal("InsurancePrice"));
+
 
         return insurance;
     }

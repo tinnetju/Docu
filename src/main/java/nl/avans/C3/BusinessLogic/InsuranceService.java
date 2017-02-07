@@ -56,7 +56,15 @@ public class InsuranceService {
             return insurance;
         }
     }
-    
+    public Insurance create(final Insurance insurance)  {
+        return insuranceRepository.create(insurance);
+    }
+    public void edit(final Insurance insurance, int ID)  {
+        insuranceRepository.edit(insurance, ID);
+    }
+    public void delete (int ID)  {
+        insuranceRepository.deleteInsuranceById(ID);
+    }    
     public List<Client> getClientsForInsurances(int ID) throws InsuranceNotFoundException
     {
         Insurance insurance = null;

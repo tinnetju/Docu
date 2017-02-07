@@ -15,19 +15,18 @@ import java.util.ArrayList;
 public class Insurance {
     private int ID;
     private String name;
+    private String description;
     private BigDecimal price;
-    private int sessionsReimbursed;
-    private InsuranceCompany insuranceCompany;
     
     public Insurance(){
         
     }
     
-    public Insurance(int ID, String name, BigDecimal price, int sessionsReimbursed){
+    public Insurance(int ID, String name, String description, BigDecimal price){
         this.ID = ID;
         this.name = name;
+        this.description = description;
         this.price = price;
-        this.sessionsReimbursed = sessionsReimbursed;
     }
 
     /**
@@ -73,30 +72,16 @@ public class Insurance {
     }
 
     /**
-     * @return the sessionsReimbursed
+     * @return the description
      */
-    public int getSessionsReimbursed() {
-        return sessionsReimbursed;
+    public String getDescription() {
+        return description;
     }
 
     /**
-     * @param sessionsReimbursed the sessionsReimbursed to set
+     * @param description the description to set
      */
-    public void setSessionsReimbursed(int sessionsReimbursed) {
-        this.sessionsReimbursed = sessionsReimbursed;
-    }
-
-    /**
-     * @return the insuranceCompany
-     */
-    public InsuranceCompany getInsuranceCompany() {
-        return insuranceCompany;
-    }
-
-    /**
-     * @param insuranceCompany the insuranceCompany to set
-     */
-    public void setInsuranceCompany(InsuranceCompany insuranceCompany) {
-        this.insuranceCompany = insuranceCompany;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

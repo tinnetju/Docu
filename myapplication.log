@@ -3386,3 +3386,757 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E:(pos 7): Pr
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.5.jar:8.5.5]
 	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_101]
 
+2017-02-07 14:15:46.804  INFO 9260 --- [main] nl.avans.C3.FacturatieApplication        : Starting FacturatieApplication on DESKTOP-S97OSK5 with PID 9260 (G:\netbeans\Docu\target\classes started by Thom in G:\netbeans\Docu)
+2017-02-07 14:15:46.805  INFO 9260 --- [main] nl.avans.C3.FacturatieApplication        : The following profiles are active: default
+2017-02-07 14:15:46.978  INFO 9260 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:15:46 CET 2017]; root of context hierarchy
+2017-02-07 14:15:48.134  INFO 9260 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ac9d9cf4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-02-07 14:15:48.622  INFO 9260 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-02-07 14:15:48.633  INFO 9260 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-02-07 14:15:48.634  INFO 9260 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-02-07 14:15:48.740  INFO 9260 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-02-07 14:15:48.741  INFO 9260 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1766 ms
+2017-02-07 14:15:48.918  INFO 9260 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-02-07 14:15:48.922  INFO 9260 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-02-07 14:15:48.923  INFO 9260 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-02-07 14:15:48.923  INFO 9260 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-02-07 14:15:48.924  INFO 9260 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-02-07 14:15:48.977  INFO 9260 --- [main] o.s.j.d.DriverManagerDataSource          : Loaded JDBC driver: com.mysql.jdbc.Driver
+2017-02-07 14:15:49.570  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/viewclient/{BSN}],methods=[GET],produces=[application/json]}" onto public nl.avans.C3.Domain.ClientAPIResponse nl.avans.C3.BusinessLogic.ClientAPIController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:15:49.572  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(nl.avans.C3.Domain.SearchQuery,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.572  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.572  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.editClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.573  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.createClient(org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.573  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewclient/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:15:49.573  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/delete/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.deleteClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.573  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndSaveClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.573  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndEditClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.574  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto java.lang.String nl.avans.C3.BusinessLogic.HomeController.index(org.springframework.ui.Model)
+2017-02-07 14:15:49.574  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editcompany]}" onto java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.editcompany(org.springframework.ui.Model)
+2017-02-07 14:15:49.575  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editcompany],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.companySubmit(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int)
+2017-02-07 14:15:49.575  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/company]}" onto java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.company(org.springframework.ui.Model)
+2017-02-07 14:15:49.576  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewcontracts/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceContractController.getInsuranceContractsByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceContractNotFoundException
+2017-02-07 14:15:49.578  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/insurance],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.helloInsurance(org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.578  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getInsuranceByID(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:15:49.578  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.addInsurance(org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.579  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.579  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.addInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.579  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurancetypes],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getinsurancetypes(org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.580  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getInsuranceTypeByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:15:49.580  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.createInsuranceType(org.springframework.ui.ModelMap)
+2017-02-07 14:15:49.580  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.editInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap,int)
+2017-02-07 14:15:49.581  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-02-07 14:15:49.583  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2017-02-07 14:15:49.584  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2017-02-07 14:15:49.584  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2017-02-07 14:15:49.588  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-02-07 14:15:49.590  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-02-07 14:15:49.828  INFO 9260 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:15:46 CET 2017]; root of context hierarchy
+2017-02-07 14:15:50.025  INFO 9260 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:15:50.026  INFO 9260 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:15:50.026  INFO 9260 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:15:50.030  INFO 9260 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2017-02-07 14:15:50.075  INFO 9260 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:15:50.431  INFO 9260 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2017-02-07 14:15:50.451  INFO 9260 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2017-02-07 14:15:50.459  INFO 9260 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2017-02-07 14:15:50.589  INFO 9260 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getClientByBSNUsingGET_1
+2017-02-07 14:15:50.710  INFO 9260 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-02-07 14:15:50.715  INFO 9260 --- [main] nl.avans.C3.FacturatieApplication        : Started FacturatieApplication in 4.208 seconds (JVM running for 4.775)
+2017-02-07 14:16:01.470  INFO 9260 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-02-07 14:16:01.470  INFO 9260 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-02-07 14:16:01.487  INFO 9260 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2017-02-07 14:16:08.639 ERROR 9260 --- [http-nio-8080-exec-5] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-5] Exception processing template "views/client/addinsurance": Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers
+2017-02-07 14:16:08.644 ERROR 9260 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.TemplateRepository.getTemplate(TemplateRepository.java:246) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1104) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335) ~[thymeleaf-spring4-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring4-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1257) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1037) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:89) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_60]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_60]
+
+2017-02-07 14:16:53.841 ERROR 9260 --- [http-nio-8080-exec-6] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-6] Exception processing template "views/client/addinsurance": Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers
+2017-02-07 14:16:53.843 ERROR 9260 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.TemplateRepository.getTemplate(TemplateRepository.java:246) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1104) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335) ~[thymeleaf-spring4-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring4-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1257) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1037) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:89) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_60]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_60]
+
+2017-02-07 14:33:00.039  INFO 13644 --- [main] nl.avans.C3.FacturatieApplication        : Starting FacturatieApplication on DESKTOP-S97OSK5 with PID 13644 (G:\netbeans\Docu\target\classes started by Thom in G:\netbeans\Docu)
+2017-02-07 14:33:00.040  INFO 13644 --- [main] nl.avans.C3.FacturatieApplication        : The following profiles are active: default
+2017-02-07 14:33:00.210  INFO 13644 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:33:00 CET 2017]; root of context hierarchy
+2017-02-07 14:33:01.405  INFO 13644 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4406730] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-02-07 14:33:01.965  INFO 13644 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-02-07 14:33:01.978  INFO 13644 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-02-07 14:33:01.979  INFO 13644 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-02-07 14:33:02.072  INFO 13644 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-02-07 14:33:02.073  INFO 13644 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1864 ms
+2017-02-07 14:33:02.258  INFO 13644 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-02-07 14:33:02.262  INFO 13644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-02-07 14:33:02.263  INFO 13644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-02-07 14:33:02.263  INFO 13644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-02-07 14:33:02.263  INFO 13644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-02-07 14:33:02.320  INFO 13644 --- [main] o.s.j.d.DriverManagerDataSource          : Loaded JDBC driver: com.mysql.jdbc.Driver
+2017-02-07 14:33:03.008  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/viewclient/{BSN}],methods=[GET],produces=[application/json]}" onto public nl.avans.C3.Domain.ClientAPIResponse nl.avans.C3.BusinessLogic.ClientAPIController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:33:03.010  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(nl.avans.C3.Domain.SearchQuery,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.011  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.011  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndSaveClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.011  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndEditClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.012  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewclient/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:33:03.012  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/delete/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.deleteClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.012  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.editClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.012  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.createClient(org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.013  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.HomeController.home(org.springframework.ui.Model)
+2017-02-07 14:33:03.014  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewcontracts/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceContractController.getInsuranceContractsByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceContractNotFoundException
+2017-02-07 14:33:03.017  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getInsuranceByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:33:03.018  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.018  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.editInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap,int)
+2017-02-07 14:33:03.018  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurances],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getinsurances(org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.019  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.createInsurance(org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.019  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.addInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.020  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.createInsuranceType(org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.020  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.editInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap,int)
+2017-02-07 14:33:03.020  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurancetypes],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getinsurancetypes(org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.021  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getInsuranceTypeByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:33:03.021  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.021  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.addInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap)
+2017-02-07 14:33:03.022  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-02-07 14:33:03.026  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2017-02-07 14:33:03.027  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2017-02-07 14:33:03.028  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2017-02-07 14:33:03.033  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-02-07 14:33:03.033  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-02-07 14:33:03.334  INFO 13644 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:33:00 CET 2017]; root of context hierarchy
+2017-02-07 14:33:03.520  INFO 13644 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:33:03.520  INFO 13644 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:33:03.520  INFO 13644 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:33:03.524  INFO 13644 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2017-02-07 14:33:03.560  INFO 13644 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:33:03.921  INFO 13644 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2017-02-07 14:33:03.943  INFO 13644 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2017-02-07 14:33:03.951  INFO 13644 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2017-02-07 14:33:04.077  INFO 13644 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getClientByBSNUsingGET_1
+2017-02-07 14:33:04.111  INFO 13644 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteInsuranceUsingGET_1
+2017-02-07 14:33:04.159 ERROR 13644 --- [main] o.a.coyote.http11.Http11NioProtocol      : Failed to start end point associated with ProtocolHandler [http-nio-8080]
+
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_60]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_60]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_60]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_60]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_60]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:228) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:874) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:590) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:969) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:233) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:178) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544) [spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at nl.avans.C3.FacturatieApplication.main(FacturatieApplication.java:62) [classes/:na]
+
+2017-02-07 14:33:04.160 ERROR 13644 --- [main] o.apache.catalina.core.StandardService   : Failed to start connector [Connector[HTTP/1.1-8080]]
+
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:233) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:178) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544) [spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at nl.avans.C3.FacturatieApplication.main(FacturatieApplication.java:62) [classes/:na]
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:976) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	... 13 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_60]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_60]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_60]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_60]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_60]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:228) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:874) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:590) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:969) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	... 14 common frames omitted
+
+2017-02-07 14:33:04.167  INFO 13644 --- [main] o.apache.catalina.core.StandardService   : Stopping service Tomcat
+2017-02-07 14:33:04.177  INFO 13644 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-02-07 14:33:04.180 ERROR 13644 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2017-02-07 14:33:04.181  INFO 13644 --- [main] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:33:00 CET 2017]; root of context hierarchy
+2017-02-07 14:33:14.930 ERROR 9260 --- [http-nio-8080-exec-2] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-2] Exception processing template "views/client/addinsurance": Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers
+2017-02-07 14:33:14.931 ERROR 9260 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.TemplateRepository.getTemplate(TemplateRepository.java:246) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1104) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335) ~[thymeleaf-spring4-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring4-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1257) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1037) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:89) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_60]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_60]
+
+2017-02-07 14:33:23.943 ERROR 9260 --- [http-nio-8080-exec-5] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-5] Exception processing template "views/client/addinsurance": Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers
+2017-02-07 14:33:23.944 ERROR 9260 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template "views/client/addinsurance", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.TemplateRepository.getTemplate(TemplateRepository.java:246) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1104) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011) ~[thymeleaf-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335) ~[thymeleaf-spring4-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring4-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1257) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1037) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846) ~[spring-webmvc-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:89) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_60]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.5.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_60]
+
+2017-02-07 14:34:06.505  INFO 13544 --- [main] nl.avans.C3.FacturatieApplication        : Starting FacturatieApplication on DESKTOP-S97OSK5 with PID 13544 (G:\netbeans\Docu\target\classes started by Thom in G:\netbeans\Docu)
+2017-02-07 14:34:06.505  INFO 13544 --- [main] nl.avans.C3.FacturatieApplication        : The following profiles are active: default
+2017-02-07 14:34:06.672  INFO 13544 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:34:06 CET 2017]; root of context hierarchy
+2017-02-07 14:34:07.937  INFO 13544 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4406730] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-02-07 14:34:08.472  INFO 13544 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-02-07 14:34:08.483  INFO 13544 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-02-07 14:34:08.484  INFO 13544 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-02-07 14:34:08.577  INFO 13544 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-02-07 14:34:08.577  INFO 13544 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1908 ms
+2017-02-07 14:34:08.747  INFO 13544 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-02-07 14:34:08.750  INFO 13544 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-02-07 14:34:08.750  INFO 13544 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-02-07 14:34:08.751  INFO 13544 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-02-07 14:34:08.751  INFO 13544 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-02-07 14:34:08.796  INFO 13544 --- [main] o.s.j.d.DriverManagerDataSource          : Loaded JDBC driver: com.mysql.jdbc.Driver
+2017-02-07 14:34:09.385  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/viewclient/{BSN}],methods=[GET],produces=[application/json]}" onto public nl.avans.C3.Domain.ClientAPIResponse nl.avans.C3.BusinessLogic.ClientAPIController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:34:09.387  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(nl.avans.C3.Domain.SearchQuery,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.387  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.388  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.createClient(org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.388  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/delete/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.deleteClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.388  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.editClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.388  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewclient/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:34:09.389  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndSaveClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.389  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndEditClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.389  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.HomeController.home(org.springframework.ui.Model)
+2017-02-07 14:34:09.390  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewcontracts/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceContractController.getInsuranceContractsByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceContractNotFoundException
+2017-02-07 14:34:09.393  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getInsuranceByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:34:09.393  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.addInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.393  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurances],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getinsurances(org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.394  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.editInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap,int)
+2017-02-07 14:34:09.394  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.createInsurance(org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.394  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.395  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.addInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.395  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.396  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getInsuranceTypeByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:34:09.396  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.editInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap,int)
+2017-02-07 14:34:09.396  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.createInsuranceType(org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.396  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurancetypes],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getinsurancetypes(org.springframework.ui.ModelMap)
+2017-02-07 14:34:09.397  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-02-07 14:34:09.400  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2017-02-07 14:34:09.401  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2017-02-07 14:34:09.403  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2017-02-07 14:34:09.408  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-02-07 14:34:09.408  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-02-07 14:34:09.658  INFO 13544 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:34:06 CET 2017]; root of context hierarchy
+2017-02-07 14:34:09.842  INFO 13544 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:34:09.842  INFO 13544 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:34:09.842  INFO 13544 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:34:09.845  INFO 13544 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2017-02-07 14:34:09.879  INFO 13544 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:34:10.225  INFO 13544 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2017-02-07 14:34:10.245  INFO 13544 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2017-02-07 14:34:10.255  INFO 13544 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2017-02-07 14:34:10.379  INFO 13544 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getClientByBSNUsingGET_1
+2017-02-07 14:34:10.402  INFO 13544 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteInsuranceUsingGET_1
+2017-02-07 14:34:10.466  INFO 13544 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-02-07 14:34:10.471  INFO 13544 --- [main] nl.avans.C3.FacturatieApplication        : Started FacturatieApplication in 4.256 seconds (JVM running for 4.859)
+2017-02-07 14:34:46.530  INFO 13544 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-02-07 14:34:46.530  INFO 13544 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-02-07 14:34:46.548  INFO 13544 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2017-02-07 14:34:52.442  INFO 13544 --- [http-nio-8080-exec-7] o.s.b.f.xml.XmlBeanDefinitionReader      : Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2017-02-07 14:34:52.503  INFO 13544 --- [http-nio-8080-exec-7] o.s.jdbc.support.SQLErrorCodesFactory    : SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2017-02-07 14:39:03.794  INFO 4484 --- [main] nl.avans.C3.FacturatieApplication        : Starting FacturatieApplication on DESKTOP-S97OSK5 with PID 4484 (G:\netbeans\Docu\target\classes started by Thom in G:\netbeans\Docu)
+2017-02-07 14:39:03.795  INFO 4484 --- [main] nl.avans.C3.FacturatieApplication        : The following profiles are active: default
+2017-02-07 14:39:03.992  INFO 4484 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:39:03 CET 2017]; root of context hierarchy
+2017-02-07 14:39:05.287  INFO 4484 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$18805f41] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-02-07 14:39:05.814  INFO 4484 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-02-07 14:39:05.829  INFO 4484 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-02-07 14:39:05.830  INFO 4484 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-02-07 14:39:05.939  INFO 4484 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-02-07 14:39:05.939  INFO 4484 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1950 ms
+2017-02-07 14:39:06.154  INFO 4484 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-02-07 14:39:06.157  INFO 4484 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-02-07 14:39:06.157  INFO 4484 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-02-07 14:39:06.157  INFO 4484 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-02-07 14:39:06.158  INFO 4484 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-02-07 14:39:06.218  INFO 4484 --- [main] o.s.j.d.DriverManagerDataSource          : Loaded JDBC driver: com.mysql.jdbc.Driver
+2017-02-07 14:39:06.861  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/viewclient/{BSN}],methods=[GET],produces=[application/json]}" onto public nl.avans.C3.Domain.ClientAPIResponse nl.avans.C3.BusinessLogic.ClientAPIController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:39:06.864  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(nl.avans.C3.Domain.SearchQuery,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.864  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.865  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndEditClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.865  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndSaveClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.865  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewclient/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:39:06.865  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.createClient(org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.866  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/delete/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.deleteClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.866  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.editClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.866  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.HomeController.home(org.springframework.ui.Model)
+2017-02-07 14:39:06.867  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsuranceCompanies],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.getinsurancecompanies(org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceCompanyNotFoundException
+2017-02-07 14:39:06.868  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsuranceCompany],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.createInsuranceCompany(org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.868  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsuranceCompany],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.addInsuranceCompany(nl.avans.C3.Domain.InsuranceCompany,org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.868  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsuranceCompany/{KVK}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.editInsuranceCompany(nl.avans.C3.Domain.InsuranceCompany,org.springframework.ui.ModelMap,int)
+2017-02-07 14:39:06.868  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsuranceCompany/{KVK}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.getInsuranceCompanyByKvk(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceCompanyNotFoundException
+2017-02-07 14:39:06.870  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewcontracts/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceContractController.getInsuranceContractsByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceContractNotFoundException
+2017-02-07 14:39:06.871  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.editInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap,int)
+2017-02-07 14:39:06.872  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getInsuranceByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:39:06.872  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.872  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.createInsurance(org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.872  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.addInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.872  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurances],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getinsurances(org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.873  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getInsuranceTypeByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:39:06.873  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurancetypes],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getinsurancetypes(org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.873  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.editInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap,int)
+2017-02-07 14:39:06.873  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.createInsuranceType(org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.874  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.874  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.addInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap)
+2017-02-07 14:39:06.874  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-02-07 14:39:06.876  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2017-02-07 14:39:06.877  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2017-02-07 14:39:06.878  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2017-02-07 14:39:06.882  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-02-07 14:39:06.882  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-02-07 14:39:07.157  INFO 4484 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:39:03 CET 2017]; root of context hierarchy
+2017-02-07 14:39:07.341  INFO 4484 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:39:07.341  INFO 4484 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:39:07.341  INFO 4484 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:39:07.345  INFO 4484 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2017-02-07 14:39:07.383  INFO 4484 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:39:07.783  INFO 4484 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2017-02-07 14:39:07.816  INFO 4484 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2017-02-07 14:39:07.829  INFO 4484 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2017-02-07 14:39:08.028  INFO 4484 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getClientByBSNUsingGET_1
+2017-02-07 14:39:08.086  INFO 4484 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteInsuranceUsingGET_1
+2017-02-07 14:39:08.174  INFO 4484 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-02-07 14:39:08.180  INFO 4484 --- [main] nl.avans.C3.FacturatieApplication        : Started FacturatieApplication in 4.709 seconds (JVM running for 5.341)
+2017-02-07 14:39:15.816  INFO 4484 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-02-07 14:39:15.817  INFO 4484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-02-07 14:39:15.836  INFO 4484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2017-02-07 14:39:18.353  INFO 4484 --- [http-nio-8080-exec-4] o.s.b.f.xml.XmlBeanDefinitionReader      : Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2017-02-07 14:39:18.414  INFO 4484 --- [http-nio-8080-exec-4] o.s.jdbc.support.SQLErrorCodesFactory    : SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2017-02-07 14:40:04.118  WARN 4484 --- [http-nio-8080-exec-1] o.springframework.validation.DataBinder  : Skipping URI variable 'KVK' since the request contains a bind value with the same name.
+2017-02-07 14:40:07.151  WARN 4484 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type [java.lang.String] to required type [int]; nested exception is java.lang.NumberFormatException: For input string: "viewinsuranceCompanies"
+2017-02-07 14:42:13.353  INFO 14752 --- [main] nl.avans.C3.FacturatieApplication        : Starting FacturatieApplication on DESKTOP-S97OSK5 with PID 14752 (G:\netbeans\Docu\target\classes started by Thom in G:\netbeans\Docu)
+2017-02-07 14:42:13.354  INFO 14752 --- [main] nl.avans.C3.FacturatieApplication        : The following profiles are active: default
+2017-02-07 14:42:13.580  INFO 14752 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@57459491: startup date [Tue Feb 07 14:42:13 CET 2017]; root of context hierarchy
+2017-02-07 14:42:15.134  INFO 14752 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f4c2b877] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-02-07 14:42:15.697  INFO 14752 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-02-07 14:42:15.714  INFO 14752 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-02-07 14:42:15.717  INFO 14752 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-02-07 14:42:15.842  INFO 14752 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-02-07 14:42:15.845  INFO 14752 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2269 ms
+2017-02-07 14:42:16.061  INFO 14752 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-02-07 14:42:16.069  INFO 14752 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-02-07 14:42:16.069  INFO 14752 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-02-07 14:42:16.070  INFO 14752 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-02-07 14:42:16.070  INFO 14752 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-02-07 14:42:16.131  INFO 14752 --- [main] o.s.j.d.DriverManagerDataSource          : Loaded JDBC driver: com.mysql.jdbc.Driver
+2017-02-07 14:42:17.354  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/viewclient/{BSN}],methods=[GET],produces=[application/json]}" onto public nl.avans.C3.Domain.ClientAPIResponse nl.avans.C3.BusinessLogic.ClientAPIController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:42:17.356  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(nl.avans.C3.Domain.SearchQuery,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.357  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.357  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewclient/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:42:17.357  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.editClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.358  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/delete/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.deleteClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.358  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.createClient(org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.358  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndSaveClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.358  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndEditClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.359  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.HomeController.home(org.springframework.ui.Model)
+2017-02-07 14:42:17.360  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsuranceCompany/{KVK}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.editInsuranceCompany(nl.avans.C3.Domain.InsuranceCompany,org.springframework.ui.ModelMap,int)
+2017-02-07 14:42:17.360  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsuranceCompanies],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.getinsurancecompanies(org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceCompanyNotFoundException
+2017-02-07 14:42:17.361  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsuranceCompany],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.createInsuranceCompany(org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.361  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsuranceCompany],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.addInsuranceCompany(nl.avans.C3.Domain.InsuranceCompany,org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.362  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsuranceCompany/{KVK}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.getInsuranceCompanyByKvk(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceCompanyNotFoundException
+2017-02-07 14:42:17.367  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewcontracts/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceContractController.getInsuranceContractsByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceContractNotFoundException
+2017-02-07 14:42:17.368  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.editInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap,int)
+2017-02-07 14:42:17.369  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.370  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.createInsurance(org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.371  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurances],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getinsurances(org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.371  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.addInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.372  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getInsuranceByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:42:17.375  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.376  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.addInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.377  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurancetypes],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getinsurancetypes(org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.377  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.editInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap,int)
+2017-02-07 14:42:17.377  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.createInsuranceType(org.springframework.ui.ModelMap)
+2017-02-07 14:42:17.378  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getInsuranceTypeByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:42:17.378  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-02-07 14:42:17.381  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2017-02-07 14:42:17.382  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2017-02-07 14:42:17.383  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2017-02-07 14:42:17.387  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-02-07 14:42:17.388  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-02-07 14:42:17.946  INFO 14752 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@57459491: startup date [Tue Feb 07 14:42:13 CET 2017]; root of context hierarchy
+2017-02-07 14:42:18.064  INFO 14752 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:42:18.065  INFO 14752 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:42:18.065  INFO 14752 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:42:18.071  INFO 14752 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2017-02-07 14:42:18.138  INFO 14752 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:42:18.846  INFO 14752 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2017-02-07 14:42:18.881  INFO 14752 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2017-02-07 14:42:18.893  INFO 14752 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2017-02-07 14:42:19.139  INFO 14752 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getClientByBSNUsingGET_1
+2017-02-07 14:42:19.200  INFO 14752 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteInsuranceUsingGET_1
+2017-02-07 14:42:19.313  INFO 14752 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-02-07 14:42:19.320  INFO 14752 --- [main] nl.avans.C3.FacturatieApplication        : Started FacturatieApplication in 6.325 seconds (JVM running for 8.153)
+2017-02-07 14:42:26.379  INFO 14752 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-02-07 14:42:26.379  INFO 14752 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-02-07 14:42:26.406  INFO 14752 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms
+2017-02-07 14:42:40.150  INFO 14752 --- [http-nio-8080-exec-4] o.s.b.f.xml.XmlBeanDefinitionReader      : Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2017-02-07 14:42:40.381  INFO 14752 --- [http-nio-8080-exec-4] o.s.jdbc.support.SQLErrorCodesFactory    : SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2017-02-07 14:48:43.499  INFO 1856 --- [main] nl.avans.C3.FacturatieApplication        : Starting FacturatieApplication on DESKTOP-S97OSK5 with PID 1856 (G:\netbeans\Docu\target\classes started by Thom in G:\netbeans\Docu)
+2017-02-07 14:48:43.500  INFO 1856 --- [main] nl.avans.C3.FacturatieApplication        : The following profiles are active: default
+2017-02-07 14:48:43.709  INFO 1856 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@57459491: startup date [Tue Feb 07 14:48:43 CET 2017]; root of context hierarchy
+2017-02-07 14:48:44.998  INFO 1856 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d3f6c07e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-02-07 14:48:45.557  INFO 1856 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-02-07 14:48:45.571  INFO 1856 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-02-07 14:48:45.572  INFO 1856 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-02-07 14:48:45.663  INFO 1856 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-02-07 14:48:45.664  INFO 1856 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1958 ms
+2017-02-07 14:48:45.856  INFO 1856 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-02-07 14:48:45.859  INFO 1856 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-02-07 14:48:45.860  INFO 1856 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-02-07 14:48:45.860  INFO 1856 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-02-07 14:48:45.860  INFO 1856 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-02-07 14:48:45.913  INFO 1856 --- [main] o.s.j.d.DriverManagerDataSource          : Loaded JDBC driver: com.mysql.jdbc.Driver
+2017-02-07 14:48:46.729  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/viewclient/{BSN}],methods=[GET],produces=[application/json]}" onto public nl.avans.C3.Domain.ClientAPIResponse nl.avans.C3.BusinessLogic.ClientAPIController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:48:46.731  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(nl.avans.C3.Domain.SearchQuery,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.732  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.733  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.editClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.733  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndSaveClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.734  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndEditClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.734  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/delete/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.deleteClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.734  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewclient/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:48:46.734  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.createClient(org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.736  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.HomeController.home(org.springframework.ui.Model)
+2017-02-07 14:48:46.739  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsuranceCompany],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.createInsuranceCompany(org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.740  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsuranceCompany/{KVK}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.getInsuranceCompanyByKvk(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceCompanyNotFoundException
+2017-02-07 14:48:46.740  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsuranceCompanies],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.getinsurancecompanies(org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceCompanyNotFoundException
+2017-02-07 14:48:46.740  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsuranceCompany/{KVK}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.editInsuranceCompany(nl.avans.C3.Domain.InsuranceCompany,org.springframework.ui.ModelMap,int)
+2017-02-07 14:48:46.741  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsuranceCompany],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.addInsuranceCompany(nl.avans.C3.Domain.InsuranceCompany,org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.743  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewcontracts/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceContractController.getInsuranceContractsByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceContractNotFoundException
+2017-02-07 14:48:46.745  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.editInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap,int)
+2017-02-07 14:48:46.745  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getInsuranceByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:48:46.746  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurances],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getinsurances(org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.746  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.747  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.createInsurance(org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.747  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.addInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.748  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.addInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.748  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.748  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getInsuranceTypeByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:48:46.749  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.editInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap,int)
+2017-02-07 14:48:46.749  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.createInsuranceType(org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.749  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurancetypes],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getinsurancetypes(org.springframework.ui.ModelMap)
+2017-02-07 14:48:46.750  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-02-07 14:48:46.753  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2017-02-07 14:48:46.753  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2017-02-07 14:48:46.754  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2017-02-07 14:48:46.760  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-02-07 14:48:46.760  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-02-07 14:48:47.232  INFO 1856 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@57459491: startup date [Tue Feb 07 14:48:43 CET 2017]; root of context hierarchy
+2017-02-07 14:48:47.326  INFO 1856 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:48:47.326  INFO 1856 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:48:47.326  INFO 1856 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:48:47.332  INFO 1856 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2017-02-07 14:48:47.377  INFO 1856 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:48:48.035  INFO 1856 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2017-02-07 14:48:48.072  INFO 1856 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2017-02-07 14:48:48.093  INFO 1856 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2017-02-07 14:48:48.301  INFO 1856 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getClientByBSNUsingGET_1
+2017-02-07 14:48:48.361  INFO 1856 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteInsuranceUsingGET_1
+2017-02-07 14:48:48.439  INFO 1856 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-02-07 14:48:48.445  INFO 1856 --- [main] nl.avans.C3.FacturatieApplication        : Started FacturatieApplication in 5.288 seconds (JVM running for 6.724)
+2017-02-07 14:48:56.104  INFO 1856 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-02-07 14:48:56.104  INFO 1856 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-02-07 14:48:56.128  INFO 1856 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
+2017-02-07 14:49:15.818  INFO 1856 --- [http-nio-8080-exec-4] o.s.b.f.xml.XmlBeanDefinitionReader      : Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2017-02-07 14:49:16.068  INFO 1856 --- [http-nio-8080-exec-4] o.s.jdbc.support.SQLErrorCodesFactory    : SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2017-02-07 14:50:47.133  INFO 9368 --- [main] nl.avans.C3.FacturatieApplication        : Starting FacturatieApplication on DESKTOP-S97OSK5 with PID 9368 (G:\netbeans\Docu\target\classes started by Thom in G:\netbeans\Docu)
+2017-02-07 14:50:47.134  INFO 9368 --- [main] nl.avans.C3.FacturatieApplication        : The following profiles are active: default
+2017-02-07 14:50:47.318  INFO 9368 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:50:47 CET 2017]; root of context hierarchy
+2017-02-07 14:51:01.048  INFO 4292 --- [main] nl.avans.C3.FacturatieApplication        : Starting FacturatieApplication on DESKTOP-S97OSK5 with PID 4292 (G:\netbeans\Docu\target\classes started by Thom in G:\netbeans\Docu)
+2017-02-07 14:51:01.049  INFO 4292 --- [main] nl.avans.C3.FacturatieApplication        : The following profiles are active: default
+2017-02-07 14:51:01.221  INFO 4292 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:51:01 CET 2017]; root of context hierarchy
+2017-02-07 14:51:02.428  INFO 4292 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$18805f41] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-02-07 14:51:02.904  INFO 4292 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-02-07 14:51:02.920  INFO 4292 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-02-07 14:51:02.921  INFO 4292 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2017-02-07 14:51:03.020  INFO 4292 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-02-07 14:51:03.020  INFO 4292 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1804 ms
+2017-02-07 14:51:03.185  INFO 4292 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-02-07 14:51:03.189  INFO 4292 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-02-07 14:51:03.189  INFO 4292 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-02-07 14:51:03.189  INFO 4292 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-02-07 14:51:03.190  INFO 4292 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-02-07 14:51:03.246  INFO 4292 --- [main] o.s.j.d.DriverManagerDataSource          : Loaded JDBC driver: com.mysql.jdbc.Driver
+2017-02-07 14:51:03.881  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/viewclient/{BSN}],methods=[GET],produces=[application/json]}" onto public nl.avans.C3.Domain.ClientAPIResponse nl.avans.C3.BusinessLogic.ClientAPIController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:51:03.883  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(nl.avans.C3.Domain.SearchQuery,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.883  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/clients],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.Index(org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.883  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndSaveClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.884  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.validateAndEditClient(nl.avans.C3.Domain.Client,org.springframework.validation.BindingResult,org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.884  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/delete/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.deleteClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.884  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewclient/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.getClientByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.ClientNotFoundException
+2017-02-07 14:51:03.884  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/create],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.createClient(org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.884  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/edit/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.ClientController.editClient(int,org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.885  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.HomeController.home(org.springframework.ui.Model)
+2017-02-07 14:51:03.885  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsuranceCompany/{KVK}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.editInsuranceCompany(nl.avans.C3.Domain.InsuranceCompany,org.springframework.ui.ModelMap,int)
+2017-02-07 14:51:03.886  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsuranceCompanies],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.getinsurancecompanies(org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceCompanyNotFoundException
+2017-02-07 14:51:03.886  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsuranceCompany],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.addInsuranceCompany(nl.avans.C3.Domain.InsuranceCompany,org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.886  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsuranceCompany/{KVK}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.getInsuranceCompanyByKvk(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceCompanyNotFoundException
+2017-02-07 14:51:03.887  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsuranceCompany],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceCompanyController.createInsuranceCompany(org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.888  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/client/viewcontracts/{BSN}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceContractController.getInsuranceContractsByBSN(int,org.springframework.ui.ModelMap) throws nl.avans.C3.Domain.InsuranceContractNotFoundException
+2017-02-07 14:51:03.889  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.889  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getInsuranceByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:51:03.889  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurance/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.editInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap,int)
+2017-02-07 14:51:03.890  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurances],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.getinsurances(org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.890  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.addInsurance(nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.890  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurance],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceController.createInsurance(org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.890  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.editInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap,int)
+2017-02-07 14:51:03.891  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.createInsuranceType(org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.891  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/viewinsurancetypes],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getinsurancetypes(org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.891  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/editinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.getInsuranceTypeByID(org.springframework.ui.ModelMap,int) throws nl.avans.C3.Domain.InsuranceNotFoundException
+2017-02-07 14:51:03.891  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addinsurancetype],methods=[POST]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.addInsuranceType(nl.avans.C3.Domain.InsuranceType,org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.891  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteinsurancetype/{ID}],methods=[GET]}" onto public java.lang.String nl.avans.C3.BusinessLogic.InsuranceTypeController.deleteInsurance(int,nl.avans.C3.Domain.Insurance,org.springframework.ui.ModelMap)
+2017-02-07 14:51:03.892  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-02-07 14:51:03.893  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2017-02-07 14:51:03.894  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2017-02-07 14:51:03.895  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2017-02-07 14:51:03.899  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-02-07 14:51:03.899  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-02-07 14:51:04.159  INFO 4292 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@60bd273d: startup date [Tue Feb 07 14:51:01 CET 2017]; root of context hierarchy
+2017-02-07 14:51:04.349  INFO 4292 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:51:04.349  INFO 4292 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:51:04.349  INFO 4292 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:51:04.353  INFO 4292 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2017-02-07 14:51:04.396  INFO 4292 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-02-07 14:51:04.765  INFO 4292 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2017-02-07 14:51:04.784  INFO 4292 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2017-02-07 14:51:04.791  INFO 4292 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2017-02-07 14:51:04.934  INFO 4292 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getClientByBSNUsingGET_1
+2017-02-07 14:51:04.966  INFO 4292 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteInsuranceUsingGET_1
+2017-02-07 14:51:05.042  INFO 4292 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-02-07 14:51:05.048  INFO 4292 --- [main] nl.avans.C3.FacturatieApplication        : Started FacturatieApplication in 4.298 seconds (JVM running for 4.89)
+2017-02-07 14:51:14.860  INFO 4292 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-02-07 14:51:14.861  INFO 4292 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-02-07 14:51:14.877  INFO 4292 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms

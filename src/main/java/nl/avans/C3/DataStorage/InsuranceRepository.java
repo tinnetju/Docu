@@ -52,14 +52,15 @@ public class InsuranceRepository implements InsuranceRepositoryIF {
     @Override
     public Insurance findInsuranceById(int ID) {
         return jdbcTemplate.queryForObject(
-                "SELECT * FROM insurance WHERE ID=?",
+                "SELECT * FROM insurance WHERE InsuranceID=?",
                 new Object[]{ID}, new InsuranceRowMapper());
     }
 
 
+    @Override
     public Insurance create(final Insurance insurance) {
-        final String sql = "INSERT INTO insurance('ID', 'name', 'price', 'sessionsReimbursed', 'insuranceCompany') " +
-                "VALUES(?,?,?,?,?)";
+        final String sql = "INSERT INTO insurance(InsuranceName, InsurancePrice) " +
+                "VALUES(?,?)";
 
         // KeyHolder gaat de auto increment key uit de database bevatten.
         KeyHolder holder = new GeneratedKeyHolder();
@@ -68,19 +69,37 @@ public class InsuranceRepository implements InsuranceRepositoryIF {
             @Override
             public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
                 PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-                ps.setInt(1, insurance.getID());
-                ps.setString(2, insurance.getName());
-                ps.setBigDecimal(4, insurance.getPrice());
-                ps.setInt(3, insurance.getSessionsReimbursed());
-                //ps.setString(5, insurance.getInsuranceCompany());
+                //ps.setInt(1, insurance.getID());
+                ps.setString(1, insurance.getName());
+                ps.setBigDecimal(2, insurance.getPrice());
                 return ps;
             }
         }, holder);
 
         return insurance;
     }
+    
+    @Override
+    public void edit(final Insurance insurance, int ID) {
+//        final String sql = "UPDATE insurance SET(ID, name, price, sessionsReimbursed) " +
+//                "VALUES(?,?,?,?)WHERE ID = ?";
+		final String sql = "UPDATE insurance SET`InsuranceName` = IFNULL(?, InsuranceName),`InsurancePrice` = IFNULL(?, InsurancePrice)" +
+                "WHERE InsuranceID = ?";
+                // KeyHolder gaat de auto increment key uit de database bevatten.
+        jdbcTemplate.update((Connection connection) -> {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, insurance.getName());
+            ps.setBigDecimal(2, insurance.getPrice());
+            ps.setInt(3, ID);
+            return ps;
+        });
+		
+      
+    }    
+    
 
+    @Override
     public void deleteInsuranceById(int ID) {
-        jdbcTemplate.update("DELETE FROM insurance WHERE ID=?", new Object[]{ID});
+        jdbcTemplate.update("DELETE FROM insurance WHERE InsuranceID=?", ID);
     }
 }

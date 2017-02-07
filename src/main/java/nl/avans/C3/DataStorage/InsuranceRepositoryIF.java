@@ -19,5 +19,7 @@ public interface InsuranceRepositoryIF {
 
     public Insurance create(final Insurance insurance);
     
+    public void edit(final Insurance insurance, int ID);
+    
     public void deleteInsuranceById(int ID);
 }

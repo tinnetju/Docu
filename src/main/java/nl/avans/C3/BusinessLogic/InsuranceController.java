@@ -13,6 +13,7 @@ import nl.avans.C3.Domain.Client;
 import nl.avans.C3.Domain.ClientNotFoundException;
 import nl.avans.C3.Domain.Insurance;
 import nl.avans.C3.Domain.InsuranceNotFoundException;
+import nl.avans.C3.Domain.InsuranceType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,21 +38,8 @@ public class InsuranceController {
         this.insuranceService = insuranceService;
     }
     
-    @RequestMapping(value = "/insurance", method = RequestMethod.GET)
-    public String helloInsurance(ModelMap model) {
-        try {
-            Insurance testInsurance = insuranceService.findInsuranceById(1);
-        } catch (InsuranceNotFoundException ex) {
-            System.out.println("ERRORRRRRRRRR");
-        }
-
-        model.addAttribute("message", "Hello from the controller");
-        
-        return "insurance";
-    }
-    
-    @RequestMapping(value = "/viewinsurance/{ID}", method = RequestMethod.GET)
-    public String getInsuranceByID(@PathVariable int ID, ModelMap model) throws InsuranceNotFoundException {
+    @RequestMapping(value = "/editinsurance/{ID}", method = RequestMethod.GET)
+    public String getInsuranceByID(ModelMap model,@PathVariable int ID) throws InsuranceNotFoundException {
 
         Insurance insurance = null;
         try {
@@ -59,43 +47,51 @@ public class InsuranceController {
         } catch(InsuranceNotFoundException ex){
             //logger.error(ex.getMessage());
         }
-        
-        List<Client> clients = insuranceService.getClientsForInsurances(ID);
 
-        model.addAttribute("client", insurance);
-        model.addAttribute("insurances", clients);
-        model.addAttribute("message", "Hello from the controller");
-        return "views/insurance/viewinsurance";
+        model.addAttribute("insurance", insurance);
+        return "views/insurance/editinsurance";
+    }
+    @RequestMapping(value = "/editinsurance/{ID}", method = RequestMethod.POST)
+    public String editInsurance(Insurance insurance, ModelMap model,@PathVariable int ID) {
+        insuranceService.edit(insurance,ID);
+        model.addAttribute("message", new String("Insurance has been changed successfully")); 
+        // Open de juiste view template als resultaat.
+        return "views/insurance/viewinsurances";
+    }
+    
+    @RequestMapping(value = "/deleteinsurance/{ID}", method = RequestMethod.GET)
+    public String deleteInsurance(@PathVariable int ID,Insurance insurance,ModelMap model) {
+        insuranceService.delete(ID);
+        model.addAttribute("message", new String("Insurance deleted successfully"));     
+        return "views/insurance/viewinsurances";
+    }    
+        @RequestMapping(value = "/viewinsurances", method = RequestMethod.GET)
+    public String getinsurances(ModelMap model) {
+
+        ArrayList<Insurance> insurances = new ArrayList<>();
+        
+        for (Insurance insurance:insuranceService.findAllInsurances()){
+            insurances.add(insurance);
+        } 
+        
+        model.addAttribute("insurances", insurances);
+        return "views/insurance/viewinsurances";
     }
     
     @RequestMapping(value = "/addinsurance", method = RequestMethod.GET)
-    public String addInsurance(ModelMap model) {
+    public String createInsurance(ModelMap model){
         Insurance insurance = new Insurance();
-        
-        model.addAttribute("client", insurance);
+        model.addAttribute("insurance",insurance);
+        return "views/insurance/addinsurance";
+    }
+    
+    @RequestMapping(value = "/addinsurance", method = RequestMethod.POST)
+    public String addInsurance(Insurance insurance, ModelMap model) {
+        Insurance result = insuranceService.create(insurance);
         model.addAttribute("message", new String("New insurance has been added successfully")); //CHECK VOOR MAKEN
         // Open de juiste view template als resultaat.
-        return "views/client/addinsurance";
+        return "views/insurance/addinsurance";
     }
     
     
-    public void refreshTable(){
-        DefaultTableModel insuranceTableModel = new DefaultTableModel();
-        tblClients.setModel(insuranceTableModel);
-        insuranceTableModel.addColumn("Ingrediëntnaam"); 
-        insuranceTableModel.addColumn("Hoeveelheid");
-        
-        tblClients.getColumnModel().getColumn(1).setMinWidth(100);
-        tblClients.getColumnModel().getColumn(1).setMaxWidth(100);
-        
-        List<Insurance> insuranceList = insuranceService.findAllInsurances();
-        
-        if(insuranceList.size() > 0){
-            for (Insurance currentInsurance : insuranceList) {
-                insuranceTableModel.addRow(new Object[]{"Naam", "Beschrijving", "Prijs", "Eigen risico"});
-            }
-        }
-        else
-            insuranceTableModel.addRow(new Object[]{"Geen ingrediënten gevonden"});
-    }
 }

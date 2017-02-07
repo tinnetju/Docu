@@ -4,10 +4,15 @@
  * and open the template in the editor.
  */
 package nl.avans.C3.BusinessLogic;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import java.time.LocalDateTime;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -16,8 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-    @RequestMapping("/")
-    String index(Model model) {
-        return "index";
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String home(final Model model) {
+        model.addAttribute("now", LocalDateTime.now());
+        return "views/common/dashboard";
     }
 }
+
