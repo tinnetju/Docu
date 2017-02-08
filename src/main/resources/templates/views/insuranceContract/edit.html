@@ -1,10 +1,75 @@
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="fragments/head :: head"></head>
     <body>
-        <div>TODO write content</div>
+        <!-- Header -->
+        <div th:replace="fragments/header :: header"></div>
+        <div class="container">
+            
+        <a th:href="@{/insuranceContract/viewcontracts/} + ${BSN}"><button type="button" class="btn btn-info col-xs-2">Terug</button></a>
+        <br/>
+        <br/>
+        <br/>
+            
+        <div class="page-header">
+            <h1>Contract Wijzigen</h1>
+        </div>
+        <h2>Hier kunt u een bestaand contract wijzigen.</h2>
+        
+        <br/>
+        <br/>
+    
+        <form id="submitForm" action="#" th:action="@{/insuranceContract/edit}" th:object="${insuranceContract}" method="post">
+            <input type="hidden" th:value="${BSN}" name="BSN" />
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="BSN">Verzekering: </label>
+                        <select class="btn btn-default dropdown-toggle" th:field="*{insuranceID}">
+                         <option th:each="Insurance : ${insurances}" 
+                              th:value="${Insurance.ID}"
+                              th:text="${Insurance.name}">Wireframe</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="excess">Type verzekering: </label>
+                        <select class="btn btn-default dropdown-toggle" th:field="*{insuranceTypeID}">
+                        <option th:each="Insurance : ${insuranceTypes}" 
+                             th:value="${Insurance.ID}"
+                             th:text="${Insurance.name}"/>
+                       </select>
+                    </div>
+                </div>
+        </div>
+
+            <div class="form-group">
+                <label for="excess">Eigen risico: </label>
+                <input type="text" class="form-control" id="excess" th:field="*{excess}"/>
+                <p th:if="${#fields.hasErrors('excess')}" th:errors="*{excess}">Name Error</p>
+            </div>
+
+            <div class="form-group">
+                <label for="startdate">Begindatum(JJJJ-MM-DD): </label>
+                <input type="text" class="form-control" id="lastname" th:field="*{startDate}"/>
+                <p th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}">Date Error</p>
+            </div>
+
+            <div class="form-group">
+                <label for="enddate">Einddatum(JJJJ-MM-DD): </label>
+                <input type="text" class="form-control" id="lastname" th:field="*{endDate}"/>
+                <p th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}">Date Error</p>
+            </div>
+
+            <button type="submit" class="btn btn-primary" name="save">Aanmaken</button>
+        </form>
+    </div>
+        <footer class="footer">
+            <div th:replace="fragments/footer :: footer">&copy; 2016 blog.codeleak.pl</div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+        <script src="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
     </body>
 </html>

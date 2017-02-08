@@ -12,7 +12,9 @@ public interface InsuranceContractRepositoryIF {
     public List<InsuranceContract> findAll();
 
     public List<InsuranceContract> findInsuranceContractsByBSN(int BSN);
-
+    
+    public InsuranceContract findInsuranceContractByID(int ID);
+            
     public InsuranceContract create(final InsuranceContract insuranceContract);
     
     public void update(final InsuranceContract insuranceContract);

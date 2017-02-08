@@ -50,6 +50,12 @@ public class InsuranceContractRepository implements InsuranceContractRepositoryI
         return jdbcTemplate.query("SELECT * FROM insurancecontract WHERE BSN=?", new Object[]{BSN}, new InsuranceContractRowMapper());
     }
     
+    @Transactional(readOnly=true)
+    @Override
+    public InsuranceContract findInsuranceContractByID(int ID) {
+        return jdbcTemplate.queryForObject("SELECT * FROM insurancecontract WHERE ContractID=?", new Object[]{ID}, new InsuranceContractRowMapper());
+    }
+    
     @Override
     public InsuranceContract create(final InsuranceContract insuranceContract) {
         final String sql = "INSERT INTO insurancecontract(ContractID, BSN, InsuranceID, InsuranceTypeID, StartDate, EndDate, Excess, RemainingReimbursements) " +

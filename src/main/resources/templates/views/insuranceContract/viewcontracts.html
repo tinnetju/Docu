@@ -1,9 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="fragments/head :: head"></head>
+    <body>
 <a th:href="@{/clients}">Terug</a>
 
-<div class="container" layout:fragment="summary"> 
+<div th:replace="fragments/header :: header"></div>
+        <div class="container">
+        <div th:if="${info}">
+            <h2 th:text="${info}"/>
+            <br/>
+        </div>
+
+
+    <a th:href="@{/clients}"><button type="button" class="btn btn-info col-xs-2">Terug</button></a>
     
+    <br/>
+    <br/>
+    <br/>
+    <h2 th:text="'Contracten' + ' ' + 'van' + ' ' + ${client.firstName} + ' ' + ${client.lastName}"/>
+    <br/>
     <div th:if="${client.contracts.empty}">
-        <div>Er zijn geen contracten gevonden, <a th:href="@{/client/addinsurancecontract/{BSN}(BSN=${client.BSN})}" th:text="Voeg + ' ' + toe"/></div>
+        <div>Er zijn geen contracten gevonden, <a th:href="@{/insuranceContract/create/{BSN}(BSN=${client.BSN})}" th:text="Voeg + ' ' + toe"/></div>
     </div>
     <div th:unless="${client.contracts.empty}">
         <table class="table table-striped table-hover">
@@ -26,10 +43,19 @@
                 <td th:text="${InsuranceContract.endDate}"/>
                 <td th:text="${InsuranceContract.excess}"/>
                 <td th:text="${InsuranceContract.remainingReimbursements}"/>
-                <td><a th:href="@{/insuranceContract/edit/{ID}(ID=${InsuranceContract.insuranceContractID})}" th:text="Bewerken"/> <a th:href="@{/insuranceContract/delete/{ID}(ID=${InsuranceContract.insuranceContractID})}" th:text="Verwijderen"/></td>
+                <td><a th:href="@{/insuranceContract/edit/{ID}(ID=${InsuranceContract.insuranceContractID})}"><button type="button" class="btn btn-info">Bewerken</button></a> <a th:href="@{/insuranceContract/delete/{ID}(ID=${InsuranceContract.insuranceContractID})}"><button type="button" class="btn btn-info">Verwijderen</button></a></td>
             </tr>
             </tbody>
-            <a th:href="@{/insuranceContract/create/{BSN}(BSN=${client.BSN})}" th:text="Contract + ' ' + toevoegen"/>
         </table>
+
+        <a th:href="@{/insuranceContract/create/{BSN}(BSN=${client.BSN})}"><button type="button" class="btn btn-info">Contract toevoegen</button></a>
     </div>
 </div>
+            
+        <footer class="footer">
+            <div th:replace="fragments/footer :: footer">&copy; 2016 blog.codeleak.pl</div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+        <script src="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+</body>
+</html>

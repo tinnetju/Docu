@@ -53,6 +53,10 @@ public class InsuranceContractService {
         }
     }
     
+    public InsuranceContract findInsuranceContractByID(int ID) {
+        return insuranceContractRepository.findInsuranceContractByID(ID);
+    }
+    
     public InsuranceContract create(final InsuranceContract insuranceContract)  {
         return insuranceContractRepository.create(insuranceContract);
     }
