@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.avans.C3.BusinessLogic;
+package nl.avans.C3.Presentation;
 
 import com.itextpdf.text.DocumentException;
 import java.io.FileNotFoundException;
@@ -13,6 +13,10 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
+import nl.avans.C3.BusinessLogic.ClientService;
+import nl.avans.C3.BusinessLogic.InsuranceContractService;
+import nl.avans.C3.BusinessLogic.InvoiceService;
+import nl.avans.C3.BusinessLogic.SEPAService;
 import nl.avans.C3.Domain.Client;
 import nl.avans.C3.Domain.ClientNotFoundException;
 import nl.avans.C3.Domain.SearchQuery;

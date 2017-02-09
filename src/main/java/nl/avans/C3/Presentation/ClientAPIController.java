@@ -1,6 +1,7 @@
-package nl.avans.C3.BusinessLogic;
+package nl.avans.C3.Presentation;
 
 import java.util.List;
+import nl.avans.C3.BusinessLogic.ClientService;
 import nl.avans.C3.Domain.Client;
 import nl.avans.C3.Domain.ClientAPIResponse;
 import nl.avans.C3.Domain.ClientNotFoundException;

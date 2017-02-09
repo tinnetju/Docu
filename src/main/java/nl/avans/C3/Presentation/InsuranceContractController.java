@@ -1,4 +1,4 @@
-package nl.avans.C3.BusinessLogic;
+package nl.avans.C3.Presentation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.logging.Level;
 import javax.swing.table.DefaultTableModel;
 import javax.validation.Valid;
+import nl.avans.C3.BusinessLogic.ClientService;
+import nl.avans.C3.BusinessLogic.InsuranceContractService;
+import nl.avans.C3.BusinessLogic.InsuranceService;
+import nl.avans.C3.BusinessLogic.InsuranceTypeService;
 import nl.avans.C3.Domain.Client;
 import nl.avans.C3.Domain.ClientNotFoundException;
 import nl.avans.C3.Domain.Insurance;
