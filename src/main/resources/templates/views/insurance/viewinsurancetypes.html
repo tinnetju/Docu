@@ -9,12 +9,12 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Reimbursment description</th>
-        <th>Reimbursment amount</th>        
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Naam</th>
+        <th>Beschrijving</th>
+        <th>Beschrijving vergoeding</th>
+        <th>Vergoeding aantal</th>        
+        <th>Aanpassen</th>
+        <th>Verwijderen</th>
       </tr>
     </thead>
     <tbody>
@@ -23,8 +23,8 @@
         <td th:text="${insurancetype.description}"></td>
         <td th:text="${insurancetype.reimbursementDescription}"></td>
         <td th:text="${insurancetype.reimbursementAmount}"></td>        
-        <td><a th:href="@{/editinsurancetype/{id}(id=${insurancetype.ID})}"><button type="button" class="btn btn-info">Edit</button></a></td>
-        <td><a th:href="@{/deleteinsurancetype/{id}(id=${insurancetype.ID})}"><button type="button" class="btn btn-info" onclick="return confirm('Are you sure you want to delete this??')">Delete</button></a></td>
+        <td><a th:href="@{/editinsurancetype/{id}(id=${insurancetype.ID})}"><button type="button" class="btn btn-info">Aanpassen</button></a></td>
+        <td><a th:href="@{/deleteinsurancetype/{id}(id=${insurancetype.ID})}"><button type="button" class="btn btn-info" onclick="return confirm('Are you sure you want to delete this??')">Verwijderen</button></a></td>
         </tr>
     </tbody>
   </table>
