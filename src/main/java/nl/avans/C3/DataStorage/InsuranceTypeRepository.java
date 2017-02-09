@@ -53,7 +53,7 @@ public class InsuranceTypeRepository implements InsuranceTypeRepositoryIF {
     @Override
     public InsuranceType findInsuranceTypeById(int ID) {
         return jdbcTemplate.queryForObject(
-                "SELECT * FROM insuranceType WHERE InsuranceTypeID=?",
+                "SELECT * FROM insurancetype WHERE InsuranceTypeID=?",
                 new Object[]{ID}, new InsuranceTypeRowMapper());
     }
     
