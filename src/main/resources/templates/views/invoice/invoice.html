@@ -29,33 +29,33 @@
         </div>
     
         <div class="container" th:if="${clients.empty}">
-            <div class="container">
-                <div>Er zijn geen klanten die voldoen aan de criteria</div>
-            </div>
+            <div>Er zijn geen klanten die voldoen aan de criteria</div>
         </div>
     
         
-        <div th:unless="${clients.empty}">
-            <div class="container">
-                <table class="table table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>BSN</th>
-                        <th>Voornaam</th>
-                        <th>Achternaam</th>
-                        <th>Handeling</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="client : ${clients}">
-                        <td th:text="${client.BSN}"/>
-                        <td th:text="${client.FirstName}"/>
-                        <td th:text="${client.LastName}"/>
-                        <td><a th:href="@{/clientinvoice/{BSN}(BSN=${client.BSN})}"><button type="button" class="btn btn-primary">Beheren</button></a></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div th:unless="${clients.empty}" class="container">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>BSN</th>
+                    <th>Voornaam</th>
+                    <th>Achternaam</th>
+                    <th>Handeling</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="client : ${clients}">
+                    <td th:text="${client.BSN}"/>
+                    <td th:text="${client.FirstName}"/>
+                    <td th:text="${client.LastName}"/>
+                    <td><a th:href="@{/clientinvoice/{BSN}(BSN=${client.BSN})}"><button type="button" class="btn btn-primary">Beheren</button></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="container">
+            <a href="/">Klik hier om terug te keren naar het hoofdmenu</a>
         </div>
         
         <footer class="footer">
