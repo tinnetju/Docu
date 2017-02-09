@@ -21,15 +21,15 @@ import nl.avans.C3.DataStorage.InsuranceRepository;
 @Configuration
 @EnableTransactionManagement
 public class PersistenceContext {
-    //protected static final String PROPERTY_NAME_DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-    //protected static final String PROPERTY_NAME_DATABASE_PASSWORD = "KiY9x2RX84";
-    //protected static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11154953";
-    //protected static final String PROPERTY_NAME_DATABASE_USERNAME = "sql11154953";
-
     protected static final String PROPERTY_NAME_DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-    protected static final String PROPERTY_NAME_DATABASE_PASSWORD = "password";
-    protected static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://localhost:3306/facturatie";
-    protected static final String PROPERTY_NAME_DATABASE_USERNAME = "root";
+    protected static final String PROPERTY_NAME_DATABASE_PASSWORD = "hrgTFGuAEt";
+    protected static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11157647";
+    protected static final String PROPERTY_NAME_DATABASE_USERNAME = "sql11157647";
+
+    //protected static final String PROPERTY_NAME_DATABASE_DRIVER = "com.mysql.jdbc.Driver";
+    //protected static final String PROPERTY_NAME_DATABASE_PASSWORD = "password";
+    //protected static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://localhost:3306/facturatie";
+    //protected static final String PROPERTY_NAME_DATABASE_USERNAME = "root";
     
     private static final String PROPERTY_PACKAGES_TO_SCAN = "nl.avans.C3.Config";
 

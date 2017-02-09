@@ -2,20 +2,27 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head th:replace="fragments/head :: head"></head>
     <body>
-        <!-- Header -->
         <div th:replace="fragments/header :: header"></div>
         <div class="container">
-            <h1>Wat wilt u doen op dit moment?</h1>
+            <h1 th:text="'Facturatie van ' + ${firstName} + ' ' + ${lastName} + ' is afgerond!'" />
         </div>
-        <div class="container text-center">
-            <a href="/addinsurance"><button type="button" class="btn btn-primary btn-lg">Verzekering toevoegen</button></a>
-            <br /><br />
-            <a href="/client/create"><button type="button" class="btn btn-primary btn-lg">Klant toevoegen</button></a>
-            <br /><br />
-            <a href="/company"><button type="button" class="btn btn-primary btn-lg">Verzekeringsmaatschappij beheren</button></a>
-            <br /><br />
-            <a href="/invoice"><button type="button" class="btn btn-primary btn-lg">Facturatie beheren</button></a>
+        
+        <div class="container">
+            <p>De factuur en eventuele SEPA incasso zijn gegenereerd en bevinden zich nu in de projectmap.</p>
+            <p>
+                Factuur: /generatedfiles/invoice/
+                <br />
+                SEPA incasso: /generatedfiles/sepa/
+            </p>
         </div>
+        
+        <div class="container">
+            <a href="/invoice">Klik hier om terug te keren naar het facturatiemenu</a>
+            <br />
+            <br />
+            <a href="/">Klik hier om terug te keren naar het hoofdmenu</a>
+        </div>
+        
         <footer class="footer">
             <div th:replace="fragments/footer :: footer">&copy; 2016 blog.codeleak.pl</div>
         </footer>

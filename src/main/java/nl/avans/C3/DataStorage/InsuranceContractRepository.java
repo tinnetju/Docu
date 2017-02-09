@@ -19,6 +19,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import nl.avans.C3.Domain.InsuranceContract;
@@ -110,5 +114,24 @@ public class InsuranceContractRepository implements InsuranceContractRepositoryI
     @Override
     public void deleteInsuranceContractByID(int insuranceContractID) {
         jdbcTemplate.update("DELETE FROM insurancecontract WHERE ContractID=?", new Object[]{insuranceContractID});
+    }
+    
+    @Override
+    public List<InsuranceContract> getInsuranceContractByBSN(int bSN) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date currentDate = new Date();
+        
+        Calendar c = Calendar.getInstance();
+        c.setTime(currentDate);
+        c.add(Calendar.YEAR, 1);
+        Date newDate = c.getTime();
+        
+        List<InsuranceContract> result = jdbcTemplate.query("SELECT * FROM insurancecontract WHERE BSN = " + bSN + " AND EndDate BETWEEN '" + dateFormat.format(currentDate) + "' AND '" + dateFormat.format(newDate) + "'", new InsuranceContractRowMapper());
+        return result;
+    }
+    
+    @Override
+    public void updateInsuranceContractExcess(double excess, int contractID) {
+        jdbcTemplate.update("UPDATE insurancecontract SET Excess = ? WHERE ContractID = ?", new Object[] {excess, contractID});
     }
 }

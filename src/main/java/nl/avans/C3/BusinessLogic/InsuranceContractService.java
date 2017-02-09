@@ -68,4 +68,16 @@ public class InsuranceContractService {
     public void delete(final int ID)  {
         insuranceContractRepository.deleteInsuranceContractByID(ID);
     }
+    
+    public InsuranceContract getInsuranceContractByBSN(int bSN) {
+        List<InsuranceContract> insuranceContractList = insuranceContractRepository.getInsuranceContractByBSN(bSN);
+        
+        InsuranceContract insuranceContract = insuranceContractList.get(0);
+        
+        return insuranceContract;
+    }
+    
+    public void updateInsuranceContractExcess(double excess, int contractID){
+        insuranceContractRepository.updateInsuranceContractExcess(excess, contractID);
+    }
 }

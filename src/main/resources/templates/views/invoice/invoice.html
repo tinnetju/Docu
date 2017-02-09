@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="fragments/head :: head"></head>
+    <body>
+        <div th:replace="fragments/header :: header"></div>
+        <div class="container">
+            <h1>Facturatiemenu</h1>
+        </div>
+        
+        <div class="container">
+            <form id="submitForm" action="#" th:action="@{/invoice}" th:object="${searchquery}" method="post">
+                Zoekcriteria:
+                <br />
+                <select th:field="*{searchOption}">
+                 <option th:each="currentSearchOption : ${searchOptions}" 
+                      th:value="${currentSearchOption}"
+                      th:text="${currentSearchOption}">Wireframe</option>
+                </select>
+                <br />
+                <br />
+                Zoeken op:
+                <br />
+                <input type="text" id="SearchWords" th:field="*{searchWords}"/>
+                <br />
+                <br />
+                <button type="submit" class="btn btn-primary" name="search">Zoeken</button>    
+            </form>
+            <a href="/invoice"><button class="btn btn-danger">Reset</button></a>
+        </div>
+    
+        <div class="container" th:if="${clients.empty}">
+            <div class="container">
+                <div>Er zijn geen klanten die voldoen aan de criteria</div>
+            </div>
+        </div>
+    
+        
+        <div th:unless="${clients.empty}">
+            <div class="container">
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>BSN</th>
+                        <th>Voornaam</th>
+                        <th>Achternaam</th>
+                        <th>Handeling</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="client : ${clients}">
+                        <td th:text="${client.BSN}"/>
+                        <td th:text="${client.FirstName}"/>
+                        <td th:text="${client.LastName}"/>
+                        <td><a th:href="@{/clientinvoice/{BSN}(BSN=${client.BSN})}"><button type="button" class="btn btn-primary">Beheren</button></a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <div th:replace="fragments/footer :: footer">&copy; 2016 blog.codeleak.pl</div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+        <script src="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+    </body>
+</html>
