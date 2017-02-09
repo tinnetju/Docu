@@ -36,12 +36,12 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clients<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cliënten<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header">Clients beheren</li>
+                        <li class="dropdown-header">Cliënten beheren</li>
                         <li role="presentation">
-                            <a href="clients">Clients beheren</a>
-                            <a href="client/create">Clients toevoegen</a>
+                            <a href="clients">Cliënten beheren</a>
+                            <a href="client/create">Cliënten toevoegen</a>
                         </li>
                     </ul>
                 </li>
@@ -59,12 +59,12 @@
                     <a href="/invoice">Facturatie</a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-			<!--<span th:inline="text"> [[${#httpServletRequest.remoteUser}]]</span>!-->
+            <!--<ul class="nav navbar-nav navbar-right">
+			<span th:inline="text"> [[${#httpServletRequest.remoteUser}]]</span>
                 <form style="margin-bottom:0px;" th:action="@{/logout}" method="post">
                     <input class="btn btn-danger navbar-btn" type="submit" value="Uitloggen"/>
                 </form>
-            </ul>
+            </ul>!-->
         </div>
     </div>
 </nav>
