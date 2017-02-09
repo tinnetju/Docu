@@ -1,20 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head th:replace="fragments/head :: head"></head>
@@ -22,6 +5,10 @@
         <!-- Header -->
         <div th:replace="fragments/header :: header"></div>
         <div class="container">
+        <div th:if="${info}">
+            <h2 th:text="${info}"/>
+            <br/>
+        </div>
         <div class="page-header">
             <h1>Cliënt toevoegen</h1>
         </div>

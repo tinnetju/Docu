@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 public class ClientController {
-    private javax.swing.JTable tblClients;
     private ClientService clientService;
    
    

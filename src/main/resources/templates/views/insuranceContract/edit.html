@@ -5,6 +5,10 @@
         <!-- Header -->
         <div th:replace="fragments/header :: header"></div>
         <div class="container">
+        <div th:if="${info}">
+            <h2 th:text="${info}"/>
+            <br/>
+        </div>
             
         <a th:href="@{/insuranceContract/viewcontracts/} + ${BSN}"><button type="button" class="btn btn-info col-xs-2">Terug</button></a>
         <br/>
@@ -20,7 +24,9 @@
         <br/>
     
         <form id="submitForm" action="#" th:action="@{/insuranceContract/edit}" th:object="${insuranceContract}" method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <input type="hidden" th:value="${BSN}" name="BSN" />
+            <input type="hidden" th:value="${insuranceContract.insuranceContractID}" name="insuranceContractID" />
 
             <div class="row">
                 <div class="col-sm-4">
@@ -63,7 +69,7 @@
                 <p th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}">Date Error</p>
             </div>
 
-            <button type="submit" class="btn btn-primary" name="save">Aanmaken</button>
+            <button type="submit" class="btn btn-primary" name="save">Wijzigen</button>
         </form>
     </div>
         <footer class="footer">

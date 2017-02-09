@@ -5,6 +5,10 @@
         <!-- Header -->
         <div th:replace="fragments/header :: header"></div>
         <div class="container">
+        <div th:if="${info}">
+            <h2 th:text="${info}"/>
+            <br/>
+        </div>
             
         <a th:href="@{/clients}"><button type="button" class="btn btn-info col-xs-2">Terug</button></a>
     

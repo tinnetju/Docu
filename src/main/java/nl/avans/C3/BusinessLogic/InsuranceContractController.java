@@ -89,13 +89,12 @@ public class InsuranceContractController {
         model.addAttribute("insuranceTypes", insuranceTypeService.findAllInsuranceTypes());
         return "views/insuranceContract/create";
     }
-    
-    
 
     @RequestMapping(value="/insuranceContract/create", method = RequestMethod.POST)
     public String validateAndSaveContract(@Valid InsuranceContract insuranceContract, final BindingResult bindingResult, final ModelMap model) {
         if (bindingResult.hasErrors()) {
-            return "views/insuranceContract/create/";
+            model.addAttribute("BSN", insuranceContract.getBSN());
+            return "views/insuranceContract/create";
         }
         
         InsuranceContract newInsuranceContract = insuranceContract;
@@ -125,6 +124,8 @@ public class InsuranceContractController {
              //logger.error(ex.getMessage());
         }
         
+        
+        model.addAttribute("info", "Banaan.");
         if(insuranceContractService.create(newInsuranceContract) != null) {
             model.addAttribute("info", "Het nieuwe contract is aangemaakt.");
         } else {
@@ -137,13 +138,7 @@ public class InsuranceContractController {
         
         return "redirect:/insuranceContract/viewcontracts/" + newInsuranceContract.getBSN();
     }
-    
-    
-    
-    
-    
-    
-    
+
     @RequestMapping(value = "/insuranceContract/edit/{ID}", method = RequestMethod.GET)
     public String editContract(@PathVariable int ID, ModelMap model) {
         InsuranceContract insuranceContract = null;
@@ -160,7 +155,9 @@ public class InsuranceContractController {
     @RequestMapping(value="/insuranceContract/edit", method = RequestMethod.POST)
     public String validateAndEditContract(@Valid InsuranceContract insuranceContract, final BindingResult bindingResult, final ModelMap model) {
         if (bindingResult.hasErrors()) {
-            return "views/insuranceContract/edit/";
+            model.addAttribute("BSN", insuranceContract.getBSN());
+            model.addAttribute("insuranceContractID", insuranceContract.getInsuranceContractID());
+            return "views/insuranceContract/edit";
         }
        
         InsuranceContract newInsuranceContract = insuranceContract;
@@ -185,22 +182,25 @@ public class InsuranceContractController {
                         model.addAttribute("insuranceContract", insuranceContract);
                         model.addAttribute("insurances", insuranceService.findAllInsurances());
                         model.addAttribute("insuranceTypes", insuranceTypeService.findAllInsuranceTypes());
-                        return "views/insuranceContract/create"; 
+                        return "views/insuranceContract/edit"; 
                     }
                 }
             }
         } catch(InsuranceContractNotFoundException ex){
              //logger.error(ex.getMessage());
             model.addAttribute("info", "Contract kon niet worden gewijzigd");
-            
+        }
+        
+        try {
+            insuranceContractService.update(newInsuranceContract);
+            model.addAttribute("info", "Het contract is gewijzigd");
+        } catch(Exception e){
+            model.addAttribute("info", "Het contract kon niet worden gewijzigd");
         }
 
-        insuranceContractService.update(newInsuranceContract);
-        
-        return "redirect:/insuranceContract/viewcontracts/" + insuranceContract.getBSN() + "?success=true";
+        return "redirect:/insuranceContract/viewcontracts/" + insuranceContract.getBSN();
     }
 
-    
     @RequestMapping(value = "/insuranceContract/delete/{ID}", method = RequestMethod.GET)
     public String deleteContract(@PathVariable int ID, ModelMap model) {
         
@@ -213,7 +213,12 @@ public class InsuranceContractController {
              model.addAttribute("info", "Het contract kon niet worden verwijderd.");
         }
         
-        model.addAttribute("clients", clientService.findAllClients());
-        return "forward:insuranceContract/viewcontracts/" + insuranceContract.getBSN();
+        model.addAttribute("BSN", insuranceContract.getBSN());
+        model.addAttribute("insuranceContract", insuranceContract);
+        model.addAttribute("insurances", insuranceService.findAllInsurances());
+        model.addAttribute("insuranceTypes", insuranceTypeService.findAllInsuranceTypes());
+        model.addAttribute("info", "Het contract kon niet worden aangemaakt.");
+        
+        return "redirect:/insuranceContract/viewcontracts/" + insuranceContract.getBSN();
     }
 }

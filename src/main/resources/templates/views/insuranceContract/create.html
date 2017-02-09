@@ -9,7 +9,7 @@
             <h2 th:text="${info}"/>
             <br/>
         </div>
-        <a th:href="@{/insuranceContract/viewcontracts/}"><button type="button" class="btn btn-info col-xs-2">Terug</button></a>
+        <a th:href="@{/insuranceContract/viewcontracts/} + ${BSN}"><button type="button" class="btn btn-info col-xs-2">Terug</button></a>
     
         <br/>
         <br/>
@@ -24,6 +24,7 @@
     
     <form id="submitForm" action="#" th:action="@{/insuranceContract/create}" th:object="${insuranceContract}" method="post">
         <input type="hidden" th:value="${BSN}" name="BSN" />
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
