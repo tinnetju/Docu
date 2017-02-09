@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="fragments/head :: head"></head>
+    <body>
+        <div th:replace="fragments/header :: header"></div>
+        <div class="container">
+            <h1 th:text="'Facturatie beheren van ' + ${firstName} + ' ' + ${lastName}" />
+        </div>
+        
+        <div th:if="${treatments.empty}" class="container">
+            <div>Er zijn geen klanten met onbetaalde behandelingen</div>
+        </div>
+    
+        <div th:unless="${treatments.empty}" class="container">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Behandelcode</th>
+                        <th>Behandelingnaam</th>
+                        <th>Aantal sessies</th>
+                        <th>Sessieduur</th>
+                        <th>Tarief</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="treatment : ${treatments}">
+                        <td th:text="${treatment.behandelCode}"/>
+                        <td th:text="${treatment.behandelingNaam}"/>
+                        <td th:text="${treatment.aantalSessies}"/>
+                        <td th:text="${treatment.sessieDuur} + ' uur'"/>
+                        <td th:text="'&euro;' + ${treatment.tariefBehandeling}"/>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td style="font-weight:bold;">Totaalbedrag:</td>
+                        <td style="font-weight:bold;" th:text="'&euro;' + ${totaalBedrag}"/>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Huidig eigen risico:</td>
+                        <td th:text="'&euro;' + ${excess}"/>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td style="font-weight:bold;">Te betalen bedrag:</td>
+                        <td style="font-weight:bold;" th:text="'&euro;' + ${teBetalenBedrag}"/>
+                    </tr>
+                </tbody>
+            </table>
+
+            <form action="/clientinvoice" method="post">
+                <input type="hidden" th:value="${bSN}" name="bSN" />
+
+                <input type="submit" name="save" class="btn btn-primary" value="Factureren" />
+            </form>
+        </div>
+
+
+        <div class="container">    
+            <a href="/invoice">Klik hier om terug te keren naar het facturatiemenu</a>
+            <br />
+            <br />
+            <a href="/">Klik hier om terug te keren naar het hoofdmenu</a>
+        </div>
+        
+        <footer class="footer">
+            <div th:replace="fragments/footer :: footer">&copy; 2016 blog.codeleak.pl</div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+        <script src="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+    </body>
+</html>

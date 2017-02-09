@@ -5,25 +5,62 @@
  */
 package nl.avans.C3.Domain;
 
-import java.math.BigDecimal;
-
 /**
  *
  * @author Thom
  */
 public class Treatment {
-    private String name;
-    private String code;
-    private BigDecimal priceSession;
-    private int amountSessions;
+    private int behandelCode;
+    private String behandelingNaam;
+    private String aantalSessies;
+    private String sessieDuur;
+    private double tariefBehandeling;
     
-    public Treatment(String name, String code, BigDecimal priceSession, int amountSessions){
-        this.name = name;
-        this.code = code;
-        this.priceSession = priceSession;
-        this.amountSessions = amountSessions;
+    public Treatment(int behandelCode, String behandelingNaam, String aantalSessies, String sessieDuur, double tariefBehandeling){
+        this.behandelCode = behandelCode;
+        this.behandelingNaam = behandelingNaam;
+        this.aantalSessies = aantalSessies;
+        this.sessieDuur = sessieDuur;
+        this.tariefBehandeling = tariefBehandeling;
     }
-    public BigDecimal getPrice(){
-        return priceSession;
+
+    public int getBehandelCode() {
+        return behandelCode;
+    }
+
+    public String getBehandelingNaam() {
+        return behandelingNaam;
+    }
+
+    public String getAantalSessies() {
+        return aantalSessies;
+    }
+
+    public String getSessieDuur() {
+        return sessieDuur;
+    }
+
+    public double getTariefBehandeling() {
+        return tariefBehandeling;
+    }
+
+    public void setBehandelCode(int behandelCode) {
+        this.behandelCode = behandelCode;
+    }
+
+    public void setBehandelingNaam(String behandelingNaam) {
+        this.behandelingNaam = behandelingNaam;
+    }
+
+    public void setAantalSessies(String aantalSessies) {
+        this.aantalSessies = aantalSessies;
+    }
+
+    public void setSessieDuur(String sessieDuur) {
+        this.sessieDuur = sessieDuur;
+    }
+
+    public void setTariefBehandeling(double tariefBehandeling) {
+        this.tariefBehandeling = tariefBehandeling;
     }
 }

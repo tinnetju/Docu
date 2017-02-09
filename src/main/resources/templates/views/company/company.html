@@ -2,23 +2,32 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head th:replace="fragments/head :: head"></head>
     <body>
-        <!-- Header -->
         <div th:replace="fragments/header :: header"></div>
         <div class="container">
-            <h1>Wat wilt u doen op dit moment?</h1>
+            <h1>Stamgegevens van de verzekeringsmaatschappij</h1>
         </div>
-        <div class="container text-center">
-            <a href="/addinsurance"><button type="button" class="btn btn-primary btn-lg">Verzekering toevoegen</button></a>
-            <br /><br />
-            <a href="/client/create"><button type="button" class="btn btn-primary btn-lg">Klant toevoegen</button></a>
-            <br /><br />
-            <a href="/company"><button type="button" class="btn btn-primary btn-lg">Verzekeringsmaatschappij beheren</button></a>
-            <br /><br />
-            <a href="/invoice"><button type="button" class="btn btn-primary btn-lg">Facturatie beheren</button></a>
+        
+        <div class="container">
+            <p th:text="'Bedrijfsnaam: ' + ${name}" />
+            <p th:text="'Plaats: ' + ${city}" />
+            <p th:text="'Postcode: ' + ${postalCode}" />
+            <p th:text="'Adres: ' + ${address}" />
+            <p th:text="'Land: ' + ${country}" />
+            <p th:text="'KVK: ' + ${kVK}" />
+            <br />
+            <p>
+                <a href="/editcompany"><button type="button" class="btn btn-primary">Bewerken</button></a>
+            </p>
         </div>
+        
+        <div class="container">
+            <a href="/">Klik hier om terug te keren naar het hoofdmenu</a>
+        </div>
+        
         <footer class="footer">
             <div th:replace="fragments/footer :: footer">&copy; 2016 blog.codeleak.pl</div>
         </footer>
+        
         <script src="https://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
         <script src="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
     </body>

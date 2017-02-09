@@ -6,10 +6,6 @@ import nl.avans.C3.Config.PersistenceContext;
 import nl.avans.C3.Config.ProductionContext;
 import nl.avans.C3.Config.SwaggerConfig;
 
-//imports test code Stefan
-import nl.avans.C3.BusinessLogic.PaymentManager;
-//einde imports test code Stefan
-
 import javafx.application.Application;
 import nl.avans.C3.BusinessLogic.ClientService;
 import org.springframework.boot.SpringApplication;
@@ -44,14 +40,7 @@ public class FacturatieApplication {
              
         //System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         //System.out.println(service.findAllClients().get(0).getFirstName());
-        
-        
-        //test code van Stefan //
-        PaymentManager manager = new PaymentManager();
-        manager.generateSepa();
-        //einde test code van Stefan
-        
-        
+
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(ApplicationConfig.class);
         ctx.register(ApplicationContext.class);

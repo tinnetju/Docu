@@ -6,70 +6,88 @@
 package nl.avans.C3.BusinessLogic;
 
 import java.io.File;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import nl.avans.C3.Domain.Client;
+import nl.avans.C3.Domain.ClientNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-
-import nl.avans.C3.DataStorage.PaymentDAO;
-import nl.avans.C3.Domain.Payment;
 
 /**
  *
  * @author Stefan
  */
-public class PaymentManager {
-    private String fileId;
-    private String creationDateTime;
-    private String totalAmount;
-    private String collectDate;
-    private String creationDate;
-    private String clientBIC;
-    private String clientName;
-    private String clientIBAN;
-    private String description;
+@Service
+public class SEPAService {
+    private ClientService clientService;
+    private CompanyService companyService;
+    private InvoiceService invoiceService;
+    private InsuranceContractService insuranceContractService;
     
-    private Payment payment;
-    private PaymentDAO dao = new PaymentDAO();
-    
-    public PaymentManager() {
-        
+    @Autowired
+    public void setTreatmentRepository(ClientService clientService, CompanyService companyService, InvoiceService invoiceService, InsuranceContractService insuranceContractService) {
+        this.clientService = clientService;
+        this.companyService = companyService;
+        this.invoiceService = invoiceService;
+        this.insuranceContractService = insuranceContractService;
     }
     
-    public Payment getPaymentInformation(){
-        payment = dao.getPaymentInformation();
-        
-        return payment;
-    }
     
-    public void generateSepa() throws Exception {
-        //inhoud van variables voor de Sepa bepalen
-        fileId = "pain-" + getPaymentInformation().getPaymentId();
-        creationDateTime = LocalDateTime.now().toString();
-        totalAmount = getPaymentInformation().getTotalAmount();
+    public void generateSEPA(String sepaBSN, int[] behandelCode) throws ClientNotFoundException, TransformerException, ParseException, ParserConfigurationException {
+        Client client = clientService.findClientByBSN(Integer.parseInt(sepaBSN));
+        
+        String firstName = client.getFirstName();
+        String lastName = client.getLastName();
+        
+        String creationDateTime = LocalDateTime.now().toString();
+        
+        double totaalBedrag = invoiceService.getTotaalBedrag(behandelCode);
+        double excess = insuranceContractService.getInsuranceContractByBSN(Integer.parseInt(sepaBSN)).getExcess();
+        double teBetalenBedrag;
+        if (excess > 0){
+            if(excess > totaalBedrag){
+                teBetalenBedrag = totaalBedrag;
+            }
+            else{
+                teBetalenBedrag = excess;
+            }
+        }
+        else{
+            teBetalenBedrag = 0.00;
+        }
+        String totalAmount = String.valueOf(teBetalenBedrag);
+        
         Date date = new Date();
         String dt = new SimpleDateFormat("yyyy-MM-dd").format(date);
-        creationDate = dt;
+        String fileId = "pain-" + dt + "-" + sepaBSN;
+        String description = "Afschrijving behandeling(en) door " + companyService.getCompany().getName() + " op " + dt;
+        String creationDate = dt;
+        
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
         c.setTime(sdf.parse(dt));
         c.add(Calendar.DATE, 30);
         dt = sdf.format(c.getTime());
-        collectDate = dt;
-        clientBIC = getPaymentInformation().getClientBIC();
-        clientName = getPaymentInformation().getClientName();
-        clientIBAN = getPaymentInformation().getClientIBAN();
-        description = "Afschrijving behandeling(en) bij Fysiotherapie A";
+        String collectDate = dt;
+        
+        String clientIBAN = client.getIBAN();
+        String clientBIC = client.getIBAN();
+        String clientName = firstName + " " + lastName;
         
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -346,11 +364,16 @@ public class PaymentManager {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC, "yes");
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
         DOMSource source = new DOMSource(document);
         
-        //StreamResult streamResult = new StreamResult(new File("C:\\Users\\Stefan\\Desktop\\" + fileId + ".xml"));
-        
-        //transformer.transform(source, streamResult);
+        if(teBetalenBedrag > 0){
+            StreamResult streamResult = new StreamResult(new File("generatedfiles/sepa/" + fileId + ".xml"));
+            transformer.transform(source, streamResult);
+        }
+        else{
+            //er hoeft geen SEPA incasso aangemaakt te worden
+        }
     }
 }

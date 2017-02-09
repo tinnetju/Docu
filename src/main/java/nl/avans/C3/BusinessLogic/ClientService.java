@@ -91,6 +91,17 @@ public class ClientService {
         }
     }
     
+    public List<Client> findClientsByBSN(String bSN) throws ClientNotFoundException {
+        List<Client> clients = null;
+
+        clients = clientRepository.findClientsByBSN(bSN);
+        if(clients.equals(null) || clients.size() < 1) {
+            throw new ClientNotFoundException("Exception!");
+        } else {
+            return clients;
+        }
+    }
+    
     public Client create(final Client client)  {
         return clientRepository.create(client);
     }

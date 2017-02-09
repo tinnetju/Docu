@@ -20,4 +20,8 @@ public interface InsuranceContractRepositoryIF {
     public void update(final InsuranceContract insuranceContract);
     
     public void deleteInsuranceContractByID(int insuranceContractID);
+    
+    public List<InsuranceContract> getInsuranceContractByBSN(int bSN);
+            
+    public void updateInsuranceContractExcess(double excess, int contractID);
 }
