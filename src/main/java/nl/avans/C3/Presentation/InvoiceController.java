@@ -44,7 +44,8 @@ public class InvoiceController {
     private SEPAService sEPAService;
     private InsuranceContractService insuranceContractService;
     
-    private int[] behandelCode = {002,003,006,005};
+    private int[] behandelCode;
+    private int[] behandelCode2;
     
     @Autowired
     public InvoiceController(ClientService clientService, InvoiceService invoiceService, SEPAService sEPAService, InsuranceContractService insuranceContractService) {
@@ -107,6 +108,9 @@ public class InvoiceController {
     
     @RequestMapping(value = "/clientinvoice/{bSN}", method = RequestMethod.GET)
     public String getClientByBSN(@PathVariable int bSN, ModelMap model) throws ClientNotFoundException {
+        behandelCode = generateRandomBehandelCodeArray();
+        behandelCode2 = behandelCode;
+        
         Client client = clientService.findClientByBSN(bSN);
         
         String firstName = client.getFirstName();
@@ -142,8 +146,8 @@ public class InvoiceController {
     @RequestMapping(value = "/clientinvoice", method = RequestMethod.POST)
     @ResponseBody
     public String invoiceSubmit(@RequestParam(value = "bSN") String invoiceBSN) throws TransformerException, ParseException, ClientNotFoundException, ParserConfigurationException, DocumentException, FileNotFoundException {
-        sEPAService.generateSEPA(invoiceBSN, behandelCode);
-        invoiceService.generateInvoice(invoiceBSN, behandelCode);
+        sEPAService.generateSEPA(invoiceBSN, behandelCode2);
+        invoiceService.generateInvoice(invoiceBSN, behandelCode2);
         
         return "<script>window.location.href = \"/invoiceconfirmed/" + invoiceBSN + "\";</script>";
         //return "Factuur en SEPA incasso bestand gegenereerd.<br /> <br /><a href='/invoice'>Klik hier om meer facturen te genereren</a>";
@@ -160,5 +164,17 @@ public class InvoiceController {
         model.addAttribute("lastName", lastName);
         
         return "views/invoice/invoiceconfirmed";
+    }
+    
+    private int[] generateRandomBehandelCodeArray(){
+        int[] randomArray = new int[(int)(Math.random()*10 + 1)];
+        
+        for(int i = 0; i < randomArray.length; i++) {
+            int randomValue = (int)(Math.random()*10 + 1);
+            randomArray[i] = randomValue;
+            System.out.println(randomValue);
+        }
+        
+        return randomArray;
     }
 }
