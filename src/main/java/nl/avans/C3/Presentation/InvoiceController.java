@@ -44,7 +44,7 @@ public class InvoiceController {
     private SEPAService sEPAService;
     private InsuranceContractService insuranceContractService;
     
-    private int[] behandelCode;
+    private int[] behandelCode1;
     private int[] behandelCode2;
     
     @Autowired
@@ -108,16 +108,16 @@ public class InvoiceController {
     
     @RequestMapping(value = "/clientinvoice/{bSN}", method = RequestMethod.GET)
     public String getClientByBSN(@PathVariable int bSN, ModelMap model) throws ClientNotFoundException {
-        behandelCode = generateRandomBehandelCodeArray();
-        behandelCode2 = behandelCode;
+        behandelCode1 = generateRandomBehandelCodeArray();
+        behandelCode2 = behandelCode1;
         
         Client client = clientService.findClientByBSN(bSN);
         
         String firstName = client.getFirstName();
         String lastName = client.getLastName();
         
-        List<Treatment> treatments = invoiceService.getTreatments(behandelCode);
-        double totaalBedrag = invoiceService.getTotaalBedrag(behandelCode);
+        List<Treatment> treatments = invoiceService.getTreatments(behandelCode1);
+        double totaalBedrag = invoiceService.getTotaalBedrag(behandelCode1);
         double excess = insuranceContractService.getInsuranceContractByBSN(bSN).getExcess();
         double teBetalenBedrag;
         if (excess > 0){
