@@ -10,10 +10,10 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Naam</th>
+        <th>Prijs</th>
+        <th>Aanpassen</th>
+        <th>Verwijderen</th>
       </tr>
     </thead>
     <tbody>
@@ -21,8 +21,8 @@
         <td th:text="${insurance.ID}"></td>
         <td th:text="${insurance.name}"></td>
         <td th:text="${insurance.price}"></td>
-        <td><a th:href="@{/editinsurance/{id}(id=${insurance.ID})}"><button type="button" class="btn btn-info">Edit</button></a></td>
-        <td><a th:href="@{/deleteinsurance/{id}(id=${insurance.ID})}"><button type="button" class="btn btn-info" onclick="return confirm('Are you sure you want to delete this??')">Delete</button></a></td>
+        <td><a th:href="@{/editinsurance/{id}(id=${insurance.ID})}"><button type="button" class="btn btn-info">Aanpassen</button></a></td>
+        <td><a th:href="@{/deleteinsurance/{id}(id=${insurance.ID})}"><button type="button" class="btn btn-info" onclick="return confirm('Are you sure you want to delete this??')">Verwijderen</button></a></td>
         </tr>
     </tbody>
   </table>

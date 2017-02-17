@@ -35,12 +35,12 @@ import org.w3c.dom.Element;
 @Service
 public class SEPAService {
     private ClientService clientService;
-    private CompanyService companyService;
+    private InsuranceCompanyService companyService;
     private InvoiceService invoiceService;
     private InsuranceContractService insuranceContractService;
     
     @Autowired
-    public void setTreatmentRepository(ClientService clientService, CompanyService companyService, InvoiceService invoiceService, InsuranceContractService insuranceContractService) {
+    public void setTreatmentRepository(ClientService clientService, InsuranceCompanyService companyService, InvoiceService invoiceService, InsuranceContractService insuranceContractService) {
         this.clientService = clientService;
         this.companyService = companyService;
         this.invoiceService = invoiceService;
@@ -75,7 +75,7 @@ public class SEPAService {
         Date date = new Date();
         String dt = new SimpleDateFormat("yyyy-MM-dd").format(date);
         String fileId = "pain-" + dt + "-" + sepaBSN;
-        String description = "Afschrijving behandeling(en) door " + companyService.getCompany().getName() + " op " + dt;
+        String description = "Afschrijving behandeling(en) door " + companyService.getInsuranceCompany().getName() + " op " + dt;
         String creationDate = dt;
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

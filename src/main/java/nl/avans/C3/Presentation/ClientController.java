@@ -1,4 +1,4 @@
-package nl.avans.C3.BusinessLogic;
+package nl.avans.C3.Presentation;
 
 /**
  *
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.validation.Valid;
+import nl.avans.C3.BusinessLogic.ClientService;
 import nl.avans.C3.Domain.Client;
 import nl.avans.C3.Domain.ClientNotFoundException;
 import nl.avans.C3.Domain.Insurance;

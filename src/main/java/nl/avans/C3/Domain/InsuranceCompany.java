@@ -5,8 +5,6 @@
  */
 package nl.avans.C3.Domain;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Stefan
@@ -18,10 +16,9 @@ public class InsuranceCompany {
     private String address;
     private String country;
     private int kVK;
-    private ArrayList<Insurance> insurances;
     
-    public InsuranceCompany(){
-        
+    public InsuranceCompany() {
+
     }
     
     public InsuranceCompany(String name, String city, String postalCode, String address, String country, int kVK){
@@ -32,7 +29,7 @@ public class InsuranceCompany {
         this.country = country;
         this.kVK = kVK;
     }
-
+    
     //getters
     public String getName() {
         return name;

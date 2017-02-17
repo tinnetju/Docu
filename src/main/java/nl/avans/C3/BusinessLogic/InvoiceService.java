@@ -40,10 +40,10 @@ public class InvoiceService {
     private TreatmentRepositoryIF treatmentRepositoryIF;
     private InsuranceContractService insuranceContractService;
     private ClientService clientService;
-    private CompanyService companyService;
+    private InsuranceCompanyService companyService;
     
     @Autowired
-    public void setTreatmentRepository(TreatmentRepositoryIF treatmentRepositoryIF, InsuranceContractService insuranceContractService, ClientService clientService, CompanyService companyService) {
+    public void setTreatmentRepository(TreatmentRepositoryIF treatmentRepositoryIF, InsuranceContractService insuranceContractService, ClientService clientService, InsuranceCompanyService companyService) {
         this.treatmentRepositoryIF = treatmentRepositoryIF;
         this.insuranceContractService = insuranceContractService;
         this.clientService = clientService;
@@ -75,12 +75,12 @@ public class InvoiceService {
         String dt = new SimpleDateFormat("yyyy-MM-dd").format(date);
         String fileId = "invoice-" + dt + "-" + invoiceBSN;
         
-        String companyName = companyService.getCompany().getName();
-        String companyAddress = companyService.getCompany().getAddress();
-        String companyPostalCode = companyService.getCompany().getPostalCode();
-        String companyCity = companyService.getCompany().getCity();
+        String companyName = companyService.getInsuranceCompany().getName();
+        String companyAddress = companyService.getInsuranceCompany().getAddress();
+        String companyPostalCode = companyService.getInsuranceCompany().getPostalCode();
+        String companyCity = companyService.getInsuranceCompany().getCity();
         
-        String companyKVK = Integer.toString(companyService.getCompany().getKVK());
+        String companyKVK = Integer.toString(companyService.getInsuranceCompany().getKVK());
         String companyIBAN = "NL91ABNA0417164300";
         
         Client client = clientService.findClientByBSN(Integer.parseInt(invoiceBSN));

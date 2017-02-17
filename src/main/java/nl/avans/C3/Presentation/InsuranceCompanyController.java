@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.avans.C3.BusinessLogic;
+package nl.avans.C3.Presentation;
 
-import nl.avans.C3.Domain.Company;
+import nl.avans.C3.BusinessLogic.InsuranceCompanyService;
+import nl.avans.C3.Domain.InsuranceCompany;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,8 +24,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 
 @Controller
-public class CompanyController {
-    private CompanyService companyService;
+public class InsuranceCompanyController {
+    private InsuranceCompanyService companyService;
     
     private String name;
     private String city;
@@ -34,28 +35,28 @@ public class CompanyController {
     private int kVK;
     
     @Autowired
-    public CompanyController(CompanyService companyService) {
+    public InsuranceCompanyController(InsuranceCompanyService companyService) {
         this.companyService = companyService;
     }
     
     @RequestMapping("/company")
     String company(Model model) {
-        name = companyService.getCompany().getName();
+        name = companyService.getInsuranceCompany().getName();
         model.addAttribute("name", name);
         
-        city = companyService.getCompany().getCity();
+        city = companyService.getInsuranceCompany().getCity();
         model.addAttribute("city", city);
         
-        postalCode = companyService.getCompany().getPostalCode();
+        postalCode = companyService.getInsuranceCompany().getPostalCode();
         model.addAttribute("postalCode", postalCode);
         
-        address = companyService.getCompany().getAddress();
+        address = companyService.getInsuranceCompany().getAddress();
         model.addAttribute("address", address);
         
-        country = companyService.getCompany().getCountry();
+        country = companyService.getInsuranceCompany().getCountry();
         model.addAttribute("country", country);
         
-        kVK = companyService.getCompany().getKVK();
+        kVK = companyService.getInsuranceCompany().getKVK();
         model.addAttribute("kVK", kVK);
         
         return "views/company/company";
@@ -63,22 +64,22 @@ public class CompanyController {
    
     @RequestMapping(value="/editcompany")
     String editcompany(Model model) {
-        name = companyService.getCompany().getName();
+        name = companyService.getInsuranceCompany().getName();
         model.addAttribute("name", name);
         
-        city = companyService.getCompany().getCity();
+        city = companyService.getInsuranceCompany().getCity();
         model.addAttribute("city", city);
         
-        postalCode = companyService.getCompany().getPostalCode();
+        postalCode = companyService.getInsuranceCompany().getPostalCode();
         model.addAttribute("postalCode", postalCode);
         
-        address = companyService.getCompany().getAddress();
+        address = companyService.getInsuranceCompany().getAddress();
         model.addAttribute("address", address);
         
-        country = companyService.getCompany().getCountry();
+        country = companyService.getInsuranceCompany().getCountry();
         model.addAttribute("country", country);
         
-        kVK = companyService.getCompany().getKVK();
+        kVK = companyService.getInsuranceCompany().getKVK();
         model.addAttribute("kVK", kVK);
         
         return "views/company/editcompany";
@@ -94,7 +95,7 @@ public class CompanyController {
             @RequestParam(value = "country") String countryEdit,
             @RequestParam(value = "kVK") String kVKEdit
     ) {
-        companyService.editCompany(nameEdit, cityEdit, postalCodeEdit, addressEdit, countryEdit, Integer.parseInt(kVKEdit));
+        companyService.editInsuranceCompany(nameEdit, cityEdit, postalCodeEdit, addressEdit, countryEdit, Integer.parseInt(kVKEdit));
         return "<script>window.location.href = \"/editconfirmed\";</script>";
         //return "Stamgegevens aangepast!<br/><br/><a href='/'>Klik hier om terug te keren naar het hoodfdmenu</a>";
     }

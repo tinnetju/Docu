@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.avans.C3.BusinessLogic;
+package nl.avans.C3.Presentation;
 
 import com.itextpdf.text.DocumentException;
 import java.io.FileNotFoundException;
@@ -13,6 +13,10 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
+import nl.avans.C3.BusinessLogic.ClientService;
+import nl.avans.C3.BusinessLogic.InsuranceContractService;
+import nl.avans.C3.BusinessLogic.InvoiceService;
+import nl.avans.C3.BusinessLogic.SEPAService;
 import nl.avans.C3.Domain.Client;
 import nl.avans.C3.Domain.ClientNotFoundException;
 import nl.avans.C3.Domain.SearchQuery;
@@ -40,7 +44,8 @@ public class InvoiceController {
     private SEPAService sEPAService;
     private InsuranceContractService insuranceContractService;
     
-    private int[] behandelCode = {002,003,006,005};
+    private int[] behandelCode1;
+    private int[] behandelCode2;
     
     @Autowired
     public InvoiceController(ClientService clientService, InvoiceService invoiceService, SEPAService sEPAService, InsuranceContractService insuranceContractService) {
@@ -103,13 +108,16 @@ public class InvoiceController {
     
     @RequestMapping(value = "/clientinvoice/{bSN}", method = RequestMethod.GET)
     public String getClientByBSN(@PathVariable int bSN, ModelMap model) throws ClientNotFoundException {
+        behandelCode1 = generateRandomBehandelCodeArray();
+        behandelCode2 = behandelCode1;
+        
         Client client = clientService.findClientByBSN(bSN);
         
         String firstName = client.getFirstName();
         String lastName = client.getLastName();
         
-        List<Treatment> treatments = invoiceService.getTreatments(behandelCode);
-        double totaalBedrag = invoiceService.getTotaalBedrag(behandelCode);
+        List<Treatment> treatments = invoiceService.getTreatments(behandelCode1);
+        double totaalBedrag = invoiceService.getTotaalBedrag(behandelCode1);
         double excess = insuranceContractService.getInsuranceContractByBSN(bSN).getExcess();
         double teBetalenBedrag;
         if (excess > 0){
@@ -138,8 +146,8 @@ public class InvoiceController {
     @RequestMapping(value = "/clientinvoice", method = RequestMethod.POST)
     @ResponseBody
     public String invoiceSubmit(@RequestParam(value = "bSN") String invoiceBSN) throws TransformerException, ParseException, ClientNotFoundException, ParserConfigurationException, DocumentException, FileNotFoundException {
-        sEPAService.generateSEPA(invoiceBSN, behandelCode);
-        invoiceService.generateInvoice(invoiceBSN, behandelCode);
+        sEPAService.generateSEPA(invoiceBSN, behandelCode2);
+        invoiceService.generateInvoice(invoiceBSN, behandelCode2);
         
         return "<script>window.location.href = \"/invoiceconfirmed/" + invoiceBSN + "\";</script>";
         //return "Factuur en SEPA incasso bestand gegenereerd.<br /> <br /><a href='/invoice'>Klik hier om meer facturen te genereren</a>";
@@ -156,5 +164,17 @@ public class InvoiceController {
         model.addAttribute("lastName", lastName);
         
         return "views/invoice/invoiceconfirmed";
+    }
+    
+    private int[] generateRandomBehandelCodeArray(){
+        int[] randomArray = new int[(int)(Math.random()*10 + 1)];
+        
+        for(int i = 0; i < randomArray.length; i++) {
+            int randomValue = (int)(Math.random()*10 + 1);
+            randomArray[i] = randomValue;
+            System.out.println(randomValue);
+        }
+        
+        return randomArray;
     }
 }
