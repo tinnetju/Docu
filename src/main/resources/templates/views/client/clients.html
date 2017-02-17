@@ -9,16 +9,17 @@
   
     <div class="row col-md-8">                      
     <form class="form-horizontal" id="submitForm" action="#" th:action="@{/clients}" th:object="${searchquery}" method="post"> 
-        <div style="width:220px">
+        <div style="width:800px">
         <input type="text" class="form-control" id="SearchWords" placeholder="Zoeken" th:field="*{searchWords}"/>
-        <select class="btn btn-default dropdown-toggle" th:field="*{searchOption}">
+        
+        <select style="float: right;" class="btn btn-default dropdown-toggle" th:field="*{searchOption}">
         <option th:each="currentSearchOption : ${searchOptions}" 
               th:value="${currentSearchOption}"
               th:text="${currentSearchOption}">Wireframe</option>
         </select>
         </div>
-        <div style="width:130px;margin-left: 230px;margin-top: -70px">
-        <button type="submit" class="btn btn-primary" name="search">Zoeken</button>
+        <div style="width:130px;margin-left: 820px;margin-top: -40px;">
+            <button type="submit" class="btn btn-primary" name="search">Zoeken</button>
         </div>
     </form>          
     </div>

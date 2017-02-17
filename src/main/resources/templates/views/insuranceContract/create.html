@@ -51,19 +51,19 @@
         
         <div class="form-group">
             <label for="excess">Eigen risico: </label>
-            <input type="text" class="form-control" id="excess" th:field="*{excess}"/>
+            <input type="text" class="form-control" id="excess" th:field="*{Excess}"/>
             <p th:if="${#fields.hasErrors('excess')}" th:errors="*{excess}">Name Error</p>
         </div>
         
         <div class="form-group">
             <label for="startdate">Begindatum(JJJJ-MM-DD): </label>
-            <input type="text" class="form-control" id="lastname" th:field="*{startDate}"/>
+            <input type="text" class="form-control" id="lastname" th:field="*{StartDate}"/>
             <p th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}">Date Error</p>
         </div>
         
         <div class="form-group">
             <label for="enddate">Einddatum(JJJJ-MM-DD): </label>
-            <input type="text" class="form-control" id="lastname" th:field="*{endDate}"/>
+            <input type="text" class="form-control" id="lastname" th:field="*{EndDate}"/>
             <p th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}">Date Error</p>
         </div>
         

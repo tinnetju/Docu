@@ -1,6 +1,9 @@
 package nl.avans.C3.Domain;
 
 import java.util.Date;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 /**
  *
@@ -12,9 +15,19 @@ public class InsuranceContract {
     private int BSN;
     private int insuranceID;
     private int insuranceTypeID;
+    
+    @NotNull
+    @Future
     private java.sql.Date startDate;
+    
+    @NotNull
+    @Future
     private java.sql.Date endDate;
+    
+    @NotNull
     private Double excess;
+    
+    
     private int remainingReimbursements;
     
     private Insurance insurance;

@@ -85,15 +85,22 @@ public class InsuranceContractController {
 
         model.addAttribute("BSN", BSN);
         model.addAttribute("insuranceContract", insuranceContract);
-        model.addAttribute("insurances", insuranceService.findAllInsurances());
-        model.addAttribute("insuranceTypes", insuranceTypeService.findAllInsuranceTypes());
+        InitializePageData(model);
         return "views/insuranceContract/create";
     }
 
+    private void InitializePageData(ModelMap model)
+    {
+        model.addAttribute("insurances", insuranceService.findAllInsurances());
+        model.addAttribute("insuranceTypes", insuranceTypeService.findAllInsuranceTypes());
+    }
+    
     @RequestMapping(value="/insuranceContract/create", method = RequestMethod.POST)
     public String validateAndSaveContract(@Valid InsuranceContract insuranceContract, final BindingResult bindingResult, final ModelMap model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("BSN", insuranceContract.getBSN());
+            model.addAttribute("insuranceContract", insuranceContract);
+            InitializePageData(model);
             return "views/insuranceContract/create";
         }
         
@@ -109,13 +116,12 @@ public class InsuranceContractController {
             {
                 if(currentInsuranceContract.getInsuranceID() == newInsuranceContract.getInsuranceID()) //Is it the same insurance?
                 {        
-                    if ((newInsuranceContract.getStartDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getStartDate().before(currentInsuranceContract.getEndDate())) ||  (newInsuranceContract.getEndDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getEndDate().before(currentInsuranceContract.getEndDate())) || newInsuranceContract.getStartDate().after(newInsuranceContract.getEndDate()))
+                    if ((newInsuranceContract.getStartDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getStartDate().before(currentInsuranceContract.getEndDate())) ||  (newInsuranceContract.getEndDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getEndDate().before(currentInsuranceContract.getEndDate())) || newInsuranceContract.getStartDate().after(newInsuranceContract.getEndDate()) && newInsuranceContract.getEndDate().after(newInsuranceContract.getStartDate()))
                     {
                         model.addAttribute("info", "De cliënt beschikt al over een contract voor deze verzekering in de opgegeven periode of de datum is ongeldig.");
                         model.addAttribute("BSN", insuranceContract.getBSN());
                         model.addAttribute("insuranceContract", insuranceContract);
-                        model.addAttribute("insurances", insuranceService.findAllInsurances());
-                        model.addAttribute("insuranceTypes", insuranceTypeService.findAllInsuranceTypes());
+                        InitializePageData(model);
                         return "views/insuranceContract/create"; 
                     }
                 }
@@ -125,14 +131,12 @@ public class InsuranceContractController {
         }
         
         
-        model.addAttribute("info", "Banaan.");
         if(insuranceContractService.create(newInsuranceContract) != null) {
             model.addAttribute("info", "Het nieuwe contract is aangemaakt.");
         } else {
             model.addAttribute("BSN", insuranceContract.getBSN());
             model.addAttribute("insuranceContract", insuranceContract);
-            model.addAttribute("insurances", insuranceService.findAllInsurances());
-            model.addAttribute("insuranceTypes", insuranceTypeService.findAllInsuranceTypes());
+            InitializePageData(model);
             model.addAttribute("info", "Het contract kon niet worden aangemaakt.");
         }
         
@@ -141,13 +145,11 @@ public class InsuranceContractController {
 
     @RequestMapping(value = "/insuranceContract/edit/{ID}", method = RequestMethod.GET)
     public String editContract(@PathVariable int ID, ModelMap model) {
-        InsuranceContract insuranceContract = null;
-        insuranceContract = insuranceContractService.findInsuranceContractByID(ID);
+        InsuranceContract insuranceContract = insuranceContractService.findInsuranceContractByID(ID);
         
         model.addAttribute("BSN", insuranceContract.getBSN());
         model.addAttribute("insuranceContract", insuranceContract);
-        model.addAttribute("insurances", insuranceService.findAllInsurances());
-        model.addAttribute("insuranceTypes", insuranceTypeService.findAllInsuranceTypes());
+        InitializePageData(model);
 
         return "views/insuranceContract/edit";
     }
@@ -157,7 +159,8 @@ public class InsuranceContractController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("BSN", insuranceContract.getBSN());
             model.addAttribute("insuranceContractID", insuranceContract.getInsuranceContractID());
-            return "views/insuranceContract/edit";
+            InitializePageData(model);
+            return "views/insuranceContract/edit"; 
         }
        
         InsuranceContract newInsuranceContract = insuranceContract;
@@ -175,13 +178,12 @@ public class InsuranceContractController {
                 
                 if((currentInsuranceContract.getInsuranceID() == newInsuranceContract.getInsuranceID())) //Is it the same insurance but not the same contract?
                 {        
-                    if ((newInsuranceContract.getStartDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getStartDate().before(currentInsuranceContract.getEndDate())) ||  (newInsuranceContract.getEndDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getEndDate().before(currentInsuranceContract.getEndDate())) || newInsuranceContract.getStartDate().after(newInsuranceContract.getEndDate()))
+                    if ((newInsuranceContract.getStartDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getStartDate().before(currentInsuranceContract.getEndDate())) ||  (newInsuranceContract.getEndDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getEndDate().before(currentInsuranceContract.getEndDate())) || newInsuranceContract.getStartDate().after(newInsuranceContract.getEndDate()) && newInsuranceContract.getEndDate().after(newInsuranceContract.getStartDate()))
                     {
                         model.addAttribute("info", "De cliënt beschikt al over een contract voor deze verzekering in de opgegeven periode of de datum is ongeldig.");
                         model.addAttribute("BSN", insuranceContract.getBSN());
                         model.addAttribute("insuranceContract", insuranceContract);
-                        model.addAttribute("insurances", insuranceService.findAllInsurances());
-                        model.addAttribute("insuranceTypes", insuranceTypeService.findAllInsuranceTypes());
+                        InitializePageData(model);
                         return "views/insuranceContract/edit"; 
                     }
                 }
@@ -189,6 +191,10 @@ public class InsuranceContractController {
         } catch(InsuranceContractNotFoundException ex){
              //logger.error(ex.getMessage());
             model.addAttribute("info", "Contract kon niet worden gewijzigd");
+            model.addAttribute("BSN", insuranceContract.getBSN());
+            model.addAttribute("insuranceContract", insuranceContract);
+            InitializePageData(model);
+            return "views/insuranceContract/edit"; 
         }
         
         try {
@@ -215,9 +221,7 @@ public class InsuranceContractController {
         
         model.addAttribute("BSN", insuranceContract.getBSN());
         model.addAttribute("insuranceContract", insuranceContract);
-        model.addAttribute("insurances", insuranceService.findAllInsurances());
-        model.addAttribute("insuranceTypes", insuranceTypeService.findAllInsuranceTypes());
-        model.addAttribute("info", "Het contract kon niet worden aangemaakt.");
+        InitializePageData(model);
         
         return "redirect:/insuranceContract/viewcontracts/" + insuranceContract.getBSN();
     }

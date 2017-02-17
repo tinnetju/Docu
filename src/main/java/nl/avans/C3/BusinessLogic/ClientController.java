@@ -122,11 +122,20 @@ public class ClientController {
             return "views/client/create";
         }
         
-        Client newClient = clientService.create(client);
+        Client newClient = null;
+        try {
+            newClient = clientService.create(client);
+        } catch(Exception ex){
+            model.addAttribute("info", "Cliënt kon niet gemaakt worden (mogelijk bestaat er al een cliënt met dit burgerservicenummer.");
+            return "views/client/create";
+            //logger.error(ex.getMessage());
+        }
+        
         if(newClient != null) {
             model.addAttribute("info", "Cliënt '" + newClient.getFirstName() + " " + newClient.getLastName() + "' is toegevoegd.");
         } else {
             model.addAttribute("info", "Cliënt kon niet gemaakt worden.");
+            return "views/client/create";
         }
         
         return "redirect:/clients";
@@ -156,6 +165,7 @@ public class ClientController {
             model.addAttribute("info", "Cliënt '" + client.getFirstName() + " " + client.getLastName() + "' is gewijzigd.");
         } catch(Exception e){
             model.addAttribute("info", "Cliënt kon niet worden gewijzigd");
+            return "views/client/edit";
         }
 
         return "redirect:/clients";
