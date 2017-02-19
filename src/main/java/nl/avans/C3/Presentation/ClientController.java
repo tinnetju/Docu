@@ -188,7 +188,7 @@ public class ClientController {
         SearchQuery searchquery = new SearchQuery();
         model.addAttribute("clients", clientService.findAllClients());
         model.addAttribute("searchquery", searchquery);
-        return "views/client/clients";
+        return "forward:/clients";
     }
 }
 

@@ -18,6 +18,8 @@ import nl.avans.C3.Domain.InsuranceContract;
 import nl.avans.C3.Domain.InsuranceContractNotFoundException;
 import nl.avans.C3.Domain.InsuranceNotFoundException;
 import nl.avans.C3.Domain.SearchQuery;
+import org.joda.time.DateTime;
+import org.joda.time.Interval;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,11 +120,14 @@ public class InsuranceContractController {
         try {
             for(InsuranceContract currentInsuranceContract : insuranceContractService.getContractsByBSN(newInsuranceContract.getBSN())) //Check overlapping contracts with the same insurance ID
             {
-                if(currentInsuranceContract.getInsuranceID() == newInsuranceContract.getInsuranceID()) //Is it the same insurance?
-                {        
-                    if ((newInsuranceContract.getStartDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getStartDate().before(currentInsuranceContract.getEndDate())) ||  (newInsuranceContract.getEndDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getEndDate().before(currentInsuranceContract.getEndDate())) || newInsuranceContract.getStartDate().after(newInsuranceContract.getEndDate()) && newInsuranceContract.getEndDate().after(newInsuranceContract.getStartDate()))
+                if((currentInsuranceContract.getInsuranceID() == newInsuranceContract.getInsuranceID() && newInsuranceContract.getInsuranceContractID() != currentInsuranceContract.getInsuranceContractID())) //Is it the same insurance but not the same contract?
+                {
+                    Interval interval = new Interval(new DateTime(newInsuranceContract.getStartDate()), new DateTime(newInsuranceContract.getEndDate()));
+                    Interval interval2 = new Interval(new DateTime(currentInsuranceContract.getStartDate()), new DateTime(currentInsuranceContract.getEndDate()));
+                    
+                    if (interval.overlaps(interval2))
                     {
-                        model.addAttribute("info", "De cliënt beschikt al over een contract voor deze verzekering in de opgegeven periode of de datum is ongeldig.");
+                        model.addAttribute("info", "De cliënt beschikt al over een contract voor deze verzekering in de opgegeven periode.");
                         model.addAttribute("BSN", insuranceContract.getBSN());
                         model.addAttribute("insuranceContract", insuranceContract);
                         InitializePageData(model);
@@ -130,18 +135,23 @@ public class InsuranceContractController {
                     }
                 }
             }
-        } catch(InsuranceContractNotFoundException ex){
-             //logger.error(ex.getMessage());
+        } catch(Exception ex){
+            model.addAttribute("info", "Het contract kon niet worden aangemaakt, mogelijk valt de begindatum voor de einddatum.");
+            model.addAttribute("BSN", insuranceContract.getBSN());
+            model.addAttribute("insuranceContract", insuranceContract);
+            InitializePageData(model);
+            return "views/insuranceContract/create"; 
         }
         
         
         if(insuranceContractService.create(newInsuranceContract) != null) {
             model.addAttribute("info", "Het nieuwe contract is aangemaakt.");
         } else {
+            model.addAttribute("info", "Het contract kon niet worden aangemaakt.");
             model.addAttribute("BSN", insuranceContract.getBSN());
             model.addAttribute("insuranceContract", insuranceContract);
             InitializePageData(model);
-            model.addAttribute("info", "Het contract kon niet worden aangemaakt.");
+            return "views/insuranceContract/create"; 
         }
         
         return "redirect:/insuranceContract/viewcontracts/" + newInsuranceContract.getBSN();
@@ -177,28 +187,27 @@ public class InsuranceContractController {
         try {
             for(InsuranceContract currentInsuranceContract : insuranceContractService.getContractsByBSN(newInsuranceContract.getBSN())) //Check overlapping contracts with the same insurance ID
             {
-                if(newInsuranceContract.getInsuranceContractID() == currentInsuranceContract.getInsuranceContractID())
-                    break;
-                
-                if((currentInsuranceContract.getInsuranceID() == newInsuranceContract.getInsuranceID())) //Is it the same insurance but not the same contract?
-                {        
-                    if ((newInsuranceContract.getStartDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getStartDate().before(currentInsuranceContract.getEndDate())) ||  (newInsuranceContract.getEndDate().after(currentInsuranceContract.getStartDate()) && newInsuranceContract.getEndDate().before(currentInsuranceContract.getEndDate())) || newInsuranceContract.getStartDate().after(newInsuranceContract.getEndDate()) && newInsuranceContract.getEndDate().after(newInsuranceContract.getStartDate()))
+                if((currentInsuranceContract.getInsuranceID() == newInsuranceContract.getInsuranceID() && newInsuranceContract.getInsuranceContractID() != currentInsuranceContract.getInsuranceContractID())) //Is it the same insurance but not the same contract?
+                {
+                    Interval interval = new Interval(new DateTime(newInsuranceContract.getStartDate()), new DateTime(newInsuranceContract.getEndDate()));
+                    Interval interval2 = new Interval(new DateTime(currentInsuranceContract.getStartDate()), new DateTime(currentInsuranceContract.getEndDate()));
+                    
+                    if (interval.overlaps(interval2))
                     {
-                        model.addAttribute("info", "De cliënt beschikt al over een contract voor deze verzekering in de opgegeven periode of de datum is ongeldig.");
+                        model.addAttribute("info", "De cliënt beschikt al over een contract voor deze verzekering in de opgegeven periode.");
                         model.addAttribute("BSN", insuranceContract.getBSN());
                         model.addAttribute("insuranceContract", insuranceContract);
                         InitializePageData(model);
-                        return "views/insuranceContract/edit"; 
+                        return "views/insuranceContract/create"; 
                     }
                 }
             }
-        } catch(InsuranceContractNotFoundException ex){
-             //logger.error(ex.getMessage());
-            model.addAttribute("info", "Contract kon niet worden gewijzigd");
+        } catch(Exception ex){
+            model.addAttribute("info", "Het contract kon niet worden gewijzigd, mogelijk valt de begindatum voor de einddatum.");
             model.addAttribute("BSN", insuranceContract.getBSN());
             model.addAttribute("insuranceContract", insuranceContract);
             InitializePageData(model);
-            return "views/insuranceContract/edit"; 
+            return "views/insuranceContract/create"; 
         }
         
         try {
@@ -213,7 +222,6 @@ public class InsuranceContractController {
 
     @RequestMapping(value = "/insuranceContract/delete/{ID}", method = RequestMethod.GET)
     public String deleteContract(@PathVariable int ID, ModelMap model) {
-        
         InsuranceContract insuranceContract = insuranceContractService.findInsuranceContractByID(ID);
 
         try {
@@ -227,6 +235,6 @@ public class InsuranceContractController {
         model.addAttribute("insuranceContract", insuranceContract);
         InitializePageData(model);
         
-        return "redirect:/insuranceContract/viewcontracts/" + insuranceContract.getBSN();
+        return "forward:/insuranceContract/viewcontracts/" + insuranceContract.getBSN();
     }
 }

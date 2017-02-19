@@ -5,14 +5,8 @@
         <!-- Header -->
         <div th:replace="fragments/header :: header"></div>
         <div class="container">
-        <div th:if="${info}">
-            <h2 th:text="${info}"/>
-            <br/>
-        </div>
         <a th:href="@{/insuranceContract/viewcontracts/} + ${BSN}"><button type="button" class="btn btn-info col-xs-2">Terug</button></a>
-    
-        <br/>
-        <br/>
+
         <br/>   
         <div class="page-header">
             <h1>Contract aanmaken</h1>
@@ -20,9 +14,12 @@
         <h2>Hier kunt u een contract aanmaken</h2>
 
     <br/>
-    <br/>
     
     <form id="submitForm" action="#" th:action="@{/insuranceContract/create}" th:object="${insuranceContract}" method="post">
+        <div th:if="${info}">
+            <h3 th:text="${info}"/>
+            <br/>
+        </div>
         <input type="hidden" th:value="${BSN}" name="BSN" />
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <div class="row">
