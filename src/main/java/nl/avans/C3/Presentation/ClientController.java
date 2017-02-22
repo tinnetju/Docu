@@ -181,7 +181,7 @@ public class ClientController {
             clientService.delete(BSN);
             model.addAttribute("info", "Cliënt '" + client.getFirstName() + " " + client.getLastName() + "' is verwijderd.");
         } catch(Exception e){
-             model.addAttribute("info", "Cliënt kon niet worden verwijderd.");
+             model.addAttribute("info", "Cliënt kon niet worden verwijderd, mogelijk heeft deze cliënt nog contracten lopen.");
         }
         
         InitializeSearchOptions(model);
