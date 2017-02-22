@@ -41,7 +41,7 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="BSN">BSN: </label>
-                        <input type="text" class="form-control" id="BSN" th:field="*{BSN}"/>
+                        <input type="text" class="form-control" id="BSN" th:field="*{BSN}" readonly="readonly"/>
                         <p th:if="${#fields.hasErrors('BSN')}" th:errors="*{BSN}">BSN Error</p>
                     </div>
                 </div>

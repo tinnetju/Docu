@@ -118,13 +118,15 @@ public class InsuranceContractController {
         }
         
         try {
+            if(insuranceContractService.getContractsByBSN(newInsuranceContract.getBSN()).size() > 1)
+            {
             for(InsuranceContract currentInsuranceContract : insuranceContractService.getContractsByBSN(newInsuranceContract.getBSN())) //Check overlapping contracts with the same insurance ID
             {
                 if((currentInsuranceContract.getInsuranceID() == newInsuranceContract.getInsuranceID() && newInsuranceContract.getInsuranceContractID() != currentInsuranceContract.getInsuranceContractID())) //Is it the same insurance but not the same contract?
                 {
                     Interval interval = new Interval(new DateTime(newInsuranceContract.getStartDate()), new DateTime(newInsuranceContract.getEndDate()));
                     Interval interval2 = new Interval(new DateTime(currentInsuranceContract.getStartDate()), new DateTime(currentInsuranceContract.getEndDate()));
-                    
+
                     if (interval.overlaps(interval2))
                     {
                         model.addAttribute("info", "De cliënt beschikt al over een contract voor deze verzekering in de opgegeven periode.");
@@ -135,8 +137,9 @@ public class InsuranceContractController {
                     }
                 }
             }
+            }
         } catch(Exception ex){
-            model.addAttribute("info", "Het contract kon niet worden aangemaakt, mogelijk valt de begindatum voor de einddatum.");
+            model.addAttribute("info", "Het contract kon niet worden aangemaakt, mogelijk valt de einddatum voor de begindatum.");
             model.addAttribute("BSN", insuranceContract.getBSN());
             model.addAttribute("insuranceContract", insuranceContract);
             InitializePageData(model);
@@ -198,16 +201,16 @@ public class InsuranceContractController {
                         model.addAttribute("BSN", insuranceContract.getBSN());
                         model.addAttribute("insuranceContract", insuranceContract);
                         InitializePageData(model);
-                        return "views/insuranceContract/create"; 
+                        return "views/insuranceContract/edit"; 
                     }
                 }
             }
         } catch(Exception ex){
-            model.addAttribute("info", "Het contract kon niet worden gewijzigd, mogelijk valt de begindatum voor de einddatum.");
+            model.addAttribute("info", "Het contract kon niet worden gewijzigd, mogelijk valt de einddatum voor de begindatum.");
             model.addAttribute("BSN", insuranceContract.getBSN());
             model.addAttribute("insuranceContract", insuranceContract);
             InitializePageData(model);
-            return "views/insuranceContract/create"; 
+            return "views/insuranceContract/edit"; 
         }
         
         try {
