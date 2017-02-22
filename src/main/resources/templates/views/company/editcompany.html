@@ -8,31 +8,29 @@
         </div>
         
         <div class="container">
-            <p>
-                <form action="/editcompany" method="post">
+            <form action="/editcompany" method="post">
 
-                    Bedrijfsnaam: <br />
-                    <input type="text" th:value="${name}" name="name"/><br /><br />
+                Bedrijfsnaam: <br />
+                <input type="text" class="form-control" th:value="${name}" name="name"/><br />
 
-                    Plaats: <br />
-                    <input type="text" th:value="${city}" name="city"/><br /><br />
+                Plaats: <br />
+                <input type="text" class="form-control" th:value="${city}" name="city"/><br />
 
-                    Postcode: <br />
-                    <input type="text" th:value="${postalCode}" name="postalCode"/><br /><br />
+                Postcode: <br />
+                <input type="text" class="form-control" th:value="${postalCode}" name="postalCode"/><br />
 
-                    Adres: <br />
-                    <input type="text" th:value="${address}" name="address"/><br /><br />
+                Adres: <br />
+                <input type="text" class="form-control" th:value="${address}" name="address"/><br />
 
-                    Land: <br />
-                    <input type="text" th:value="${country}" name="country"/><br /><br />
+                Land: <br />
+                <input type="text" class="form-control" th:value="${country}" name="country"/><br />
 
-                    KVK: <br />
-                    <input type="text" th:value="${kVK}" name="kVK"/><br /><br />
+                KVK: <br />
+                <input type="text" class="form-control" th:value="${kVK}" name="kVK"/><br />
 
-                    <input type="submit" name="save" class="btn btn-primary" value="Aanpassen" />
+                <input type="submit" name="save" class="btn btn-primary" value="Aanpassen" />
 
-                </form>
-            </p>
+            </form>
         </div>
         
         <div class="container">

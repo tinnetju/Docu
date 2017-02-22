@@ -23,7 +23,8 @@ public class Treatment {
         this.sessieDuur = sessieDuur;
         this.tariefBehandeling = tariefBehandeling;
     }
-
+    
+    //getters
     public int getBehandelCode() {
         return behandelCode;
     }
@@ -48,6 +49,7 @@ public class Treatment {
         this.behandelCode = behandelCode;
     }
 
+    //setters
     public void setBehandelingNaam(String behandelingNaam) {
         this.behandelingNaam = behandelingNaam;
     }
