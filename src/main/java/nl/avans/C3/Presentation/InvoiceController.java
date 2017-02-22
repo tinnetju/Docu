@@ -23,7 +23,6 @@ import nl.avans.C3.Domain.SearchQuery;
 import nl.avans.C3.Domain.Treatment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -150,7 +149,6 @@ public class InvoiceController {
         invoiceService.generateInvoice(invoiceBSN, behandelCode2);
         
         return "<script>window.location.href = \"/invoiceconfirmed/" + invoiceBSN + "\";</script>";
-        //return "Factuur en SEPA incasso bestand gegenereerd.<br /> <br /><a href='/invoice'>Klik hier om meer facturen te genereren</a>";
     }
      
     @RequestMapping(value = "/invoiceconfirmed/{bSN}", method = RequestMethod.GET)
@@ -168,12 +166,21 @@ public class InvoiceController {
     
     private int[] generateRandomBehandelCodeArray(){
         int[] randomArray = new int[(int)(Math.random()*10 + 1)];
+        String output = "Random array met behandelgevens: ";
         
         for(int i = 0; i < randomArray.length; i++) {
             int randomValue = (int)(Math.random()*10 + 1);
             randomArray[i] = randomValue;
-            System.out.println(randomValue);
+            
+            if (randomArray.length-1 != i){
+                output += String.valueOf(randomValue)+ ", ";
+            }
+            else{
+                output += String.valueOf(randomValue);
+            }
         }
+        
+        System.out.println(output);
         
         return randomArray;
     }

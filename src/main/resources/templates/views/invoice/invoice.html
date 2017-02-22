@@ -11,17 +11,15 @@
             <form id="submitForm" action="#" th:action="@{/invoice}" th:object="${searchquery}" method="post">
                 Zoekcriteria:
                 <br />
-                <select th:field="*{searchOption}">
+                <select class="form-control" th:field="*{searchOption}">
                  <option th:each="currentSearchOption : ${searchOptions}" 
                       th:value="${currentSearchOption}"
                       th:text="${currentSearchOption}">Wireframe</option>
                 </select>
                 <br />
-                <br />
                 Zoeken op:
                 <br />
-                <input type="text" id="SearchWords" th:field="*{searchWords}"/>
-                <br />
+                <input type="text" class="form-control" id="SearchWords" th:field="*{searchWords}"/>
                 <br />
                 <button type="submit" class="btn btn-primary" name="search">Zoeken</button>    
             </form>
@@ -40,6 +38,7 @@
                     <th>BSN</th>
                     <th>Voornaam</th>
                     <th>Achternaam</th>
+                    <th>Automatische incasso</th>
                     <th>Handeling</th>
                 </tr>
                 </thead>
@@ -48,6 +47,7 @@
                     <td th:text="${client.BSN}"/>
                     <td th:text="${client.FirstName}"/>
                     <td th:text="${client.LastName}"/>
+                    <td th:text="${client.Incasso} ? 'Ja' : 'Nee'"/>
                     <td><a th:href="@{/clientinvoice/{BSN}(BSN=${client.BSN})}"><button type="button" class="btn btn-primary">Beheren</button></a></td>
                 </tr>
                 </tbody>

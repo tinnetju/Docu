@@ -88,6 +88,7 @@ public class SEPAService {
         String clientIBAN = client.getIBAN();
         String clientBIC = client.getIBAN();
         String clientName = firstName + " " + lastName;
+        boolean incasso = client.isIncasso();
         
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -368,12 +369,17 @@ public class SEPAService {
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
         DOMSource source = new DOMSource(document);
         
-        if(teBetalenBedrag > 0){
-            StreamResult streamResult = new StreamResult(new File("generatedfiles/sepa/" + fileId + ".xml"));
-            transformer.transform(source, streamResult);
+        if(incasso == true){
+            if(teBetalenBedrag > 0){
+                StreamResult streamResult = new StreamResult(new File("generatedfiles/sepa/" + fileId + ".xml"));
+                transformer.transform(source, streamResult);
+            }
+            else{
+                //er hoeft geen SEPA incasso aangemaakt te worden omdat het te betalen bedrag 0 euro is
+            }
         }
         else{
-            //er hoeft geen SEPA incasso aangemaakt te worden
+            //er hoeft geen SEPA incasso aangemaakt worden omdat de klant zelf het bedrag overmaakt
         }
     }
 }

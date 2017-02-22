@@ -22,9 +22,9 @@ import nl.avans.C3.DataStorage.InsuranceRepository;
 @EnableTransactionManagement
 public class PersistenceContext {
     protected static final String PROPERTY_NAME_DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-    protected static final String PROPERTY_NAME_DATABASE_PASSWORD = "hrgTFGuAEt";
-    protected static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11157647";
-    protected static final String PROPERTY_NAME_DATABASE_USERNAME = "sql11157647";
+    protected static final String PROPERTY_NAME_DATABASE_PASSWORD = "Wb8U5LMu6Y";
+    protected static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11160247";
+    protected static final String PROPERTY_NAME_DATABASE_USERNAME = "sql11160247";
 
     //protected static final String PROPERTY_NAME_DATABASE_DRIVER = "com.mysql.jdbc.Driver";
     //protected static final String PROPERTY_NAME_DATABASE_PASSWORD = "password";

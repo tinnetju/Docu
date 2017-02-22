@@ -18,6 +18,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -53,8 +54,47 @@ public class InvoiceService {
     public List<Treatment> getTreatments(int[] behandelCode) {
         List<Treatment> treatments = new LinkedList<>();
         
+        boolean komtVoor = false;
+        int komtVoorIndex = 0;
+        
+        DecimalFormat df = new DecimalFormat("#.#");
+        
         for(int i = 0; i < behandelCode.length; i++) {
-            treatments.add(treatmentRepositoryIF.getTreatment(behandelCode[i]));
+            
+            for(int x = 0; x < treatments.size(); x++){
+                if(treatments.get(x).getBehandelCode() == behandelCode[i]){
+                    komtVoor = true;
+                    komtVoorIndex = x;
+                }
+                else{
+                    //doe niks
+                }
+            }
+            
+            if(komtVoor == false){
+                treatments.add(treatmentRepositoryIF.getTreatment(behandelCode[i]));
+            }
+            else{
+                int newIntAantalSessies;
+                String newStringAantalSessies;
+                newIntAantalSessies = Integer.parseInt(treatments.get(komtVoorIndex).getAantalSessies()) + Integer.parseInt(treatmentRepositoryIF.getTreatment(behandelCode[i]).getAantalSessies());
+                newStringAantalSessies = String.valueOf(newIntAantalSessies);
+                
+                double newDoubleSessieDuur;
+                String newStringSessieDuur;
+                newDoubleSessieDuur = Double.parseDouble(treatments.get(komtVoorIndex).getSessieDuur().replaceAll(",",".")) + Double.parseDouble(treatmentRepositoryIF.getTreatment(behandelCode[i]).getSessieDuur().replaceAll(",","."));
+                newStringSessieDuur = String.valueOf(df.format(newDoubleSessieDuur));
+                
+                treatments.set(komtVoorIndex, new Treatment(
+                    behandelCode[i], 
+                    treatments.get(komtVoorIndex).getBehandelingNaam(), 
+                    newStringAantalSessies,
+                    newStringSessieDuur,
+                    treatments.get(komtVoorIndex).getTariefBehandeling() + treatmentRepositoryIF.getTreatment(behandelCode[i]).getTariefBehandeling())
+                );
+                
+                komtVoor = false;
+            }
         }
         
         return treatments;
@@ -89,6 +129,7 @@ public class InvoiceService {
         String clientAddress = client.getAddress();
         String clientPostalCode = client.getPostalCode();
         String clientCity = client.getCity();
+        boolean incasso = client.isIncasso();
         
         Date date2 = new Date();
         String dt2 = new SimpleDateFormat("dd-MM-yyyy").format(date2);
@@ -96,7 +137,7 @@ public class InvoiceService {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         Calendar c = Calendar.getInstance();
         c.setTime(sdf.parse(dt2));
-        c.add(Calendar.DATE, 30);
+        c.add(Calendar.MONTH, 1);
         dt2 = sdf.format(c.getTime());
         String expirationDate = dt2;
         
@@ -134,12 +175,14 @@ public class InvoiceService {
         insertCell(table, "Tarief", Element.ALIGN_LEFT, 1, bfBold12);
         table.setHeaderRows(1);
         
-        for(int i = 0; i < behandelCode.length; i++) {
-            insertCell(table, "" + behandelCode[i], Element.ALIGN_LEFT, 1, bf12);
-            insertCell(table, "" + treatmentRepositoryIF.getTreatment(behandelCode[i]).getBehandelingNaam(), Element.ALIGN_LEFT, 1, bf12);
-            insertCell(table, "" + treatmentRepositoryIF.getTreatment(behandelCode[i]).getAantalSessies(), Element.ALIGN_LEFT, 1, bf12);
-            insertCell(table, "" + treatmentRepositoryIF.getTreatment(behandelCode[i]).getSessieDuur(), Element.ALIGN_LEFT, 1, bf12);
-            insertCell(table, "€" + treatmentRepositoryIF.getTreatment(behandelCode[i]).getTariefBehandeling(), Element.ALIGN_RIGHT, 1, bf12);
+        List<Treatment> treatments = getTreatments(behandelCode);
+        
+        for(int i = 0; i < treatments.size(); i++) {
+            insertCell(table, "" + treatments.get(i).getBehandelCode(), Element.ALIGN_LEFT, 1, bf12);
+            insertCell(table, "" + treatments.get(i).getBehandelingNaam(), Element.ALIGN_LEFT, 1, bf12);
+            insertCell(table, "" + treatments.get(i).getAantalSessies(), Element.ALIGN_LEFT, 1, bf12);
+            insertCell(table, "" + treatments.get(i).getSessieDuur(), Element.ALIGN_LEFT, 1, bf12);
+            insertCell(table, "€" + treatments.get(i).getTariefBehandeling(), Element.ALIGN_RIGHT, 1, bf12);
         }
         
         //totaalbedrag zonder eigen risico
@@ -189,14 +232,17 @@ public class InvoiceService {
             doc.add(new Paragraph("U heeft nog €0.0 eigen risico over."));
         }
         
-        
         doc.add(new Paragraph("\n\n"));
-        
-        if (teBetalenBedrag > 0){
-            doc.add(new Paragraph("We verzoeken u vriendelijk het bovenstaande bedrag van €" + teBetalenBedrag + " voor " + expirationDate + " te voldoen op onze bankrekening onder vermelding van het factuurnummer " + invoiceNumber + ". Voor vragen kunt u contact opnemen per e-mail."));
+        if(incasso == false){
+            if (teBetalenBedrag > 0){
+                doc.add(new Paragraph("We verzoeken u vriendelijk het bovenstaande bedrag van €" + teBetalenBedrag + " voor " + expirationDate + " te voldoen op onze bankrekening onder vermelding van het factuurnummer " + invoiceNumber + ". Voor vragen kunt u contact opnemen per e-mail."));
+            }
+            else{
+                doc.add(new Paragraph("Omdat uw eigen risico op is worden er geen kosten in rekening gebracht voor de bovenstaande behandelingen."));
+            }
         }
         else{
-            doc.add(new Paragraph("Omdat uw eigen risico op is worden er geen kosten in rekening gebracht voor de bovenstaande behandelingen."));
+            doc.add(new Paragraph("Het geld zal binnen 10 werkdagen van uw rekening afgeschreven worden door middel van een automatische incasso."));
         }
         
         // Closing the file

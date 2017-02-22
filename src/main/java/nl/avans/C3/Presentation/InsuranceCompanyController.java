@@ -6,13 +6,9 @@
 package nl.avans.C3.Presentation;
 
 import nl.avans.C3.BusinessLogic.InsuranceCompanyService;
-import nl.avans.C3.Domain.InsuranceCompany;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -97,7 +93,6 @@ public class InsuranceCompanyController {
     ) {
         companyService.editInsuranceCompany(nameEdit, cityEdit, postalCodeEdit, addressEdit, countryEdit, Integer.parseInt(kVKEdit));
         return "<script>window.location.href = \"/editconfirmed\";</script>";
-        //return "Stamgegevens aangepast!<br/><br/><a href='/'>Klik hier om terug te keren naar het hoodfdmenu</a>";
     }
     
     @RequestMapping("/editconfirmed")
